@@ -72,7 +72,34 @@
       <form id="reponse" method="post">
 
         
-        
+        <fieldset>
+          <legend>
+            Paramètres
+          </legend>
+          <table class="">
+            <tr>
+            <td class="largeur30">Fonction logique 
+              <select name="Fonction logique">
+                <option value="and" selected="selected">and</option>
+                <option value="or">or</option>
+                <option value="xor">xor</option>
+              </select>
+            </td>
+            <td class="largeur30">Valeur de A :
+              <input type="radio" name="valeur a" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
+              <input type="radio" name="valeur a" value="1" id="a 1" /> <label for="1">1</label></td>
+            <td class="largeur30">Valeur de B :
+              <input type="radio" name="valeur b" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
+              <input type="radio" name="valeur b" value="1" id="a 1" /> <label for="1">1</label>
+            </td>
+            </tr>
+          </table>
+          
+          
+          
+          
+          
+        </fieldset>
         
         
      
@@ -87,23 +114,16 @@
 <tbody>
   
   <tr>
-    <td class="tableau-fonction" colspan="2">Fonction logique 
-       <select name="Fonction logique">
-          <option value="and" selected="selected">and</option>
-          <option value="or">or</option>
-          <option value="xor">xor</option>
-        </select>
+    <td class="tableau-fonction" colspan="2"><span id="valeur_fonction_logique">Fonction logique</span>
     </td>
     <td class="tableau-parametres">B&nbsp;&nbsp;&nbsp;
-      <input type="radio" name="valeur b" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
-      <input type="radio" name="valeur b" value="1" id="a 1" /> <label for="1">1</label>
+      
     </td>
   </tr>
   <tr>
     <td class="tableau-parametres pas-bordure-droite aligne_droite largeur30" rowspan="2" >A&nbsp;&nbsp;&nbsp;</td>
     <td class="tableau-parametres pas-bordure-gauche largeur30 aligne_gauche" rowspan="2">
-      <input type="radio" name="valeur a" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
-      <input type="radio" name="valeur a" value="1" id="a 1" /> <label for="1">1</label></td>
+      </td>
     <td class="tableau-element pas-bordure-bas largeur30"><input class="champ_reponse" type="text" name="reponse" value="" placeholder="votre réponse"/></td>
   </tr>
   <tr>
