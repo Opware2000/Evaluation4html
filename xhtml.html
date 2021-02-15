@@ -15,9 +15,10 @@
       <h1 class="titre_page">
         Logique booléenne
       </h1>
-
+  <div id="imageflottante">
+       
       <a
-        id="imageflottante"
+        
         href="https://fr.wikipedia.org/wiki/George_Boole"
         target="_blank"
         title="Présentation de George Boole sur Wikipédia"
@@ -29,6 +30,14 @@
           alt="Portrait de George Boole, "
         />
       </a>
+     <form id="positionImage" method="post">
+        <input
+          type="button"
+          onclick="changer_cote_float();"
+          value="Changer de côté l'image"
+        />  
+      </form>
+      </div>
 
       <p class="presentation">
         "George Boole, n&eacute; le 2 novembre 1815 &agrave; Lincoln
@@ -86,32 +95,27 @@
         </select>
     </td>
     <td class="tableau-parametres">B&nbsp;&nbsp;&nbsp;
-      <input type="radio" name="valeur b" value="0" id="a 0" /> <label for="0">0</label>
-        <input type="radio" name="valeur b" value="1" id="a 1" /> <label for="1">1</label>
+      <input type="radio" name="valeur b" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
+      <input type="radio" name="valeur b" value="1" id="a 1" /> <label for="1">1</label>
     </td>
   </tr>
   <tr>
     <td class="tableau-parametres pas-bordure-droite aligne_droite largeur30" rowspan="2" >A&nbsp;&nbsp;&nbsp;</td>
-    <td class="tableau-parametres pas-bordure-gauche largeur30 aligne_gauche" rowspan="2"><input type="radio" name="valeur a" value="0" id="a 0" /> <label for="0">0</label>
-        <input type="radio" name="valeur a" value="1" id="a 1" /> <label for="1">1</label></td>
+    <td class="tableau-parametres pas-bordure-gauche largeur30 aligne_gauche" rowspan="2">
+      <input type="radio" name="valeur a" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
+      <input type="radio" name="valeur a" value="1" id="a 1" /> <label for="1">1</label></td>
     <td class="tableau-element pas-bordure-bas largeur30"><input class="champ_reponse" type="text" name="reponse" value="" placeholder="votre réponse"/></td>
   </tr>
   <tr>
     <td class="tableau-element pas-bordure-haut" >
-      <input type="button" onclick="reponse();" value="Vérifier" /></td>
+      <input type="button" onclick="verif();" value="Vérifier" />
+      <input type="button" onclick="init();" value="Réinitialiser" />
+    </td>
   </tr>
 </tbody>
 </table>
       </form>
-      <div class="position_bouton">
-        <form id="positionImage" method="post">
-        <input
-          type="button"
-          onclick="changer_cote_float();"
-          value="Changer de côté l'image"
-        />  
-      </form>
-      </div>
+      
       
       
       <p id="heure">

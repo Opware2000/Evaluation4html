@@ -130,6 +130,7 @@ span.entree {
 #imageflottante {
   float: left;
   margin-right: 10px;
+  text-align:center;
 }
 p.presentation {
   text-align: justify;
@@ -146,6 +147,3 @@ p.presentation {
   overflow: scroll;
 }
 
-.position_bouton{
-  text-align:left;
-}

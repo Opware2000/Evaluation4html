@@ -4,24 +4,21 @@
 /* | Utilisé par le fichier xhtml.html            |*/
 /*  ---------------------------------------------- */
 
-/* Fonction de changement de côté de l'image de Georges Boole */
+/* Fonction de changement de côté de l'image de Georges Boole et du bouton */
 function changer_cote_float()
 {
-  var item = document.getElementById('imageflottante');
-  var bouton = document.getElementById('position_bouton');
-  if (item.style.float == 'right')
+  var div = document.getElementById('imageflottante');
+  if (div.style.float == 'right')
     {
-      item.style.float = 'left';
-      item.style.marginLeft = "0";
-      item.style.marginRight= "10px";
-      bouton.style.float = 'left';
+      div.style.float = 'left';
+      div.style.marginLeft = "0";
+      div.style.marginRight= "10px";
     }
   else
     {
-      item.style.float ='right';
-      item.style.marginLeft = "10px";
-      item.style.marginRight= "0px";
-      bouton.style.float = 'right';
+      div.style.float ='right';
+      div.style.marginLeft = "10px";
+      div.style.marginRight= "0px";
     }
 }
 
@@ -44,6 +41,7 @@ function heure_machine()
     s = "0" + s;
   }
   item.innerHTML = "Heure machine " + h + ":" + m + ":" + s;
+  refresh();
 }
 
 /* Fonction d'initialisation de la page : formulaire + heure */
