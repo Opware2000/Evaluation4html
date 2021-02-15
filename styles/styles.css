@@ -178,6 +178,11 @@ p.presentation {
   padding: 10px;
 }
 
+div.centre {
+  width: 100;
+  text-align: center;
+}
+
 #heure {
   text-align: right;
 }
