@@ -65,8 +65,9 @@
           <tr>
             <td class="largeur30 pas_bordure">
               Fonction logique
-              <select name="Fonction logique">
-                <option value="and" selected="selected">and</option>
+              <select name="fonctionLogique" id="fonctionLogique" onchange="change_valeur();">
+                <option value="0" selected="selected">-Choisir une fonction-</option>
+                <option value="and">and</option>
                 <option value="or">or</option>
                 <option value="xor">xor</option>
               </select>
@@ -107,7 +108,7 @@
         <tr>
           <td colspan="3">
             <input type="button" onclick="creer_exercice()" value="Cr&eacute;er l'exercice" />
-            <input type="button" onclick="init();" value="R&eacute;initialiser" />
+            <input type="button" onclick="raz();" value="R&eacute;initialiser" />
           </td>
         </tr>
       </table>
