@@ -55,7 +55,8 @@
           href="https://fr.wikipedia.org/wiki/George_Boole"
           target="_blank"
           title="Présentation de George Boole sur Wikipédia"
-          >Pour lire la suite de cet article de Wikip&eacute;dia, cliquez sur
+        >
+          Pour lire la suite de cet article de Wikip&eacute;dia, cliquez sur
           l'image !</a
         >
       </p>
@@ -88,25 +89,11 @@
           </tr>
         </tbody>
       </table>
-
-      <form id="positionImage" method="post" action="mailto:toto@wanadoo.fr">
-        <input
-          type="radio"
-          id="imageGauche"
-          name="imageGauche"
-          value="imageGauche"
-          checked
-        />
-        <label for="imageGauche">Image à gauche</label>
-        <input
-          type="radio"
-          id="imageDroite"
-          name="imageDroite"
-          value="imageDroite"
-          checked
-        />
-        <label for="imageDroite">Image à droite</label>
+      
+      <form id="positionImage" method="post">
+        <button onclick="changer_cote_float();">Changer de côté l'image</button>
       </form>
+      <script  type="text/javascript" src="javascript/script.js">
     </div>
   </body>
 </html>
