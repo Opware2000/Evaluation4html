@@ -10,32 +10,37 @@
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
     <link href="./styles.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-      *{
+      * { /* CSS pour tous les éléments du DOM*/
         font-family: Arial, sans-serif;
         font-size: 14px;
         font-weight: normal;
-        
+        background-color: #DDD;
+        background-image:url('background.png')
       }
+      /* Titre de la page */
       h1.titre_page {
         display: block;
-        font-size:3em;
-        margin-right:auto;
-        margin-left:auto;
-        width:50%;
-        text-align:center;
-        border:1px  solid;
-        bord-
+        font-size: 3em;
+        margin-right: auto;
+        margin-left: auto;
+        width: 50%;
+        text-align: center;
+        border: 1px solid;
+        border-top-color: #222;
+        border-left-color: #222;
+        border-right-color: #DDD;
+        border-bottom-color: #DDD;
         background-color: #a2b3c4;
       }
-      .tg {
+      /* Tableau */
+      .tableau {
         border-collapse: collapse;
         border-spacing: 0;
-        width:50%;
-        margin-left:auto;
+        width: 50%;
+        margin-left: auto;
         margin-right: auto;
-        display:block;
       }
-      .tg td {
+      .tableau td {
         border-color: black;
         border-style: solid;
         border-width: 1px;
@@ -43,19 +48,27 @@
         padding: 10px 5px;
         word-break: normal;
       }
-      .tg th {
+      .tableau th {
         border-color: black;
         border-style: solid;
         border-width: 1px;
-        font-weight : bold;
+        font-weight: bold;
         overflow: hidden;
         padding: 10px 5px;
         word-break: normal;
-        text-align:center;
+        text-align: center;
       }
-      .tg .tg-0lax {
+      .tableau .tableau-cellule {
         text-align: center;
         vertical-align: center;
+      }
+      span.entree {
+        font-weight: bold;
+        font-style : italic;
+      }
+      span.fonction{
+        font-weight : bold;
+        color : #BB2222;
       }
     </style>
   </head>
@@ -64,25 +77,25 @@
       Logique booléenne
     </h1>
 
-    <table class="tg">
+    <table class="tableau">
       <thead>
         <tr>
-          <th class="tg-0lax" colspan="3">Titre</th>
+          <th class="tableau-cellule" colspan="3">Table de vérité</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="tg-0lax">A&amp;B</td>
-          <td class="tg-0lax" colspan="2">B</td>
+          <td class="tableau-cellule"><span class="fonction">fonction A &amp; B</span></td>
+          <td class="tableau-cellule" colspan="2"><span class="entree">Entrée B</span></td>
         </tr>
         <tr>
-          <td class="tg-0lax" rowspan="2">A</td>
-          <td class="tg-0lax">0</td>
-          <td class="tg-0lax">0</td>
+          <td class="tableau-cellule" rowspan="2"><span class="entree">Entrée A</span></td>
+          <td class="tableau-cellule">0</td>
+          <td class="tableau-cellule">0</td>
         </tr>
         <tr>
-          <td class="tg-0lax">0</td>
-          <td class="tg-0lax">1</td>
+          <td class="tableau-cellule">0</td>
+          <td class="tableau-cellule">1</td>
         </tr>
       </tbody>
     </table>
