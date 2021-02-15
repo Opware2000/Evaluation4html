@@ -37,15 +37,28 @@ function heure_machine() {
   item.innerHTML = "Heure machine " + h + ":" + m + ":" + s;
   rafraichir();
 }
-
+/* Permet de rafraichir l'affichage de l'heure toutes les secondes*/
 function rafraichir() {
   var t = 1000; // rafraîchissement en millisecondes
   setTimeout("heure_machine()", t);
 }
 
-/* Fonction d'initialisation de la page : formulaire + heure */
+/* Création de l'exercice */
+
+function creer_exercice(){
+  var valeurA = document.getElementById('valeurA') ;
+  var valeurB = document.getElementById('valeurB') ;
+  var nomFonction = document.getElementById('valeur_fonction_logique');
+  
+  valeurA.innerHtml=' vaut ';
+  valeurB.innerHtml=' vaut '
+  
+}
+
+/* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
   heure_machine();
 }
 
 init();
+
