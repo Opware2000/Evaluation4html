@@ -1,3 +1,10 @@
+/*  ---------------------------------------------- */
+/* | Javascript Evaluation HTML CSS Javascript    |*/
+/* | auteurs : Marc Bouché Pillon, Nicolas Ogier  |*/
+/* | Utilisé par le fichier xhtml.html            |*/
+/*  ---------------------------------------------- */
+
+/* Fonction de changement de côté de l'image de Georges Boole */
 function changer_cote_float()
 {
   var item = document.getElementById('imageflottante');
@@ -15,10 +22,29 @@ function changer_cote_float()
     }
 }
 
-function raz_image()
+/* Fonction qui affiche l'heure machine */
+function heure_minute_seconde()
 {
-  var item = document.getElementById('imageflottante');
-  item.style.float = 'left';
-  item.style.marginLeft = "0";
-  item.style.marginRight= "10px";
+  var 
+  var now = new Date()
+  var h = now.getHours(), m = ladate.getMinutes(), s = ladate.getSeconds();
+  if (h<10)
+  {
+    h = "0" + h;
+  }
+  if (m<10)
+  {
+    m = "0" + m;
+  }
+  if (s<10)
+  {
+    s = "0" + s;
+  }
+
 }
+document.write("Heure brute : ");
+document.write(ladate.getHours()+":"+ladate.getMinutes()+":"+ladate.getSeconds())
+document.write("<BR>");
+document.write("Heure formatée : ");
+document.write(h+":"+m+":"+s)
+</script>
