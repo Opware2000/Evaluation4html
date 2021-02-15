@@ -1,0 +1,65 @@
+* {
+  /* CSS pour tous les éléments du DOM*/
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  background-color: #DDD;
+  background-image: url("background.png");
+}
+/* Titre de la page */
+h1.titre_page {
+  display: block;
+  font-size: 3em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  text-align: center;
+  border: 1px solid;
+  border-top-color: #222;
+  border-left-color: #222;
+  border-right-color: #DDD;
+  border-bottom-color: #DDD;
+  background-color: #a2b3c4;
+}
+/* Tableau */
+.tableau {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tableau td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+.tableau th {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+  text-align: center;
+}
+.tableau .tableau-cellule {
+  text-align: center;
+  vertical-align: center;
+}
+span.entree {
+  font-weight: bold;
+  font-style: italic;
+}
+span.fonction {
+  font-weight: bold;
+  color: #BB2222;
+}
+.imageflottante {
+  float: left;
+  margin-right: 10px;
+}
