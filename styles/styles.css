@@ -33,6 +33,8 @@ h1.titre_page {
   border-color: black;
   border-style: solid;
   border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
   overflow: hidden;
   padding: 10px 5px;
   word-break: normal;
@@ -41,16 +43,54 @@ h1.titre_page {
   border-color: black;
   border-style: solid;
   border-width: 1px;
-  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
   overflow: hidden;
   padding: 10px 5px;
   word-break: normal;
-  text-align: center;
 }
-.tableau .tableau-cellule {
+.tableau .tableau-parametres {
+  border-color: #000000;
+  font-style: italic;
+  font-weight: bold;
   text-align: center;
-  vertical-align: center;
+  vertical-align: top;
 }
+.tableau .tableau-fonction {
+  border-color: #000000;
+  color: #fe0000;
+  text-align: center;
+  vertical-align: top;
+}
+.tableau .tableau-element {
+  border-color: #000000;
+  text-align: center;
+  vertical-align: top;
+}
+.tableau .tableau-entete {
+  border-color: #000000;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: top;
+  border:0;
+}
+.tableau .pas-bordure-droite{
+  border-right:0;
+}
+.tableau .pas-bordure-bas{
+  border-bottom : 0;
+}
+.tableau .pas-bordure-gauche{
+  border-left:0;
+}
+.tableau .pas-bordure-haut{
+  border-top :0;
+}
+.tableau .pas-bordure{
+  border:0;
+}
+
 span.entree {
   font-weight: bold;
   font-style: italic;

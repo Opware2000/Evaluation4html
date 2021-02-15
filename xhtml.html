@@ -62,33 +62,32 @@
       </p>
 
       <table class="tableau">
-        <thead>
-          <tr>
-            <th class="tableau-cellule" colspan="3">Table de vérité</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tableau-cellule">
-              <span id="fonction">fonction A &amp; B</span>
-            </td>
-            <td class="tableau-cellule" colspan="2">
-              <span class="entree">Entrée B</span>
-            </td>
-          </tr>
-          <tr>
-            <td class="tableau-cellule" rowspan="2">
-              <span class="entree">Entrée A</span>
-            </td>
-            <td class="tableau-cellule">0</td>
-            <td class="tableau-cellule">0</td>
-          </tr>
-          <tr>
-            <td class="tableau-cellule">0</td>
-            <td class="tableau-cellule">1</td>
-          </tr>
-        </tbody>
-      </table>
+<thead>
+  <tr>
+    <th class="tableau-entete" colspan="3">Table de vérité</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tableau-element pas-bordure"></td>
+    <td class="tableau-element pas-bordure"></td>
+    <td class="tableau-parametres pas-bordure-bas" >B</td>
+  </tr>
+  <tr>
+    <td class="tableau-fonction" colspan="2">fonction A &amp; B</td>
+    <td class="tableau-parametres  pas-bordure-haut">0</td>
+  </tr>
+  <tr>
+    <td class="tableau-parametres pas-bordure-droite" rowspan="2" >A</td>
+    <td class="tableau-parametres pas-bordure-gauche" rowspan="2">0</td>
+    <td class="tableau-element pas-bordure-bas"><input type="text" name="reponse" value="votre"/></td>
+  </tr>
+  <tr>
+    <td class="tableau-element pas-bordure-haut" >
+      <input type="button" onclick="reponse();" value="Vérifier" /></td>
+  </tr>
+</tbody>
+</table>
 
       <form id="positionImage" method="post">
         <input
@@ -98,6 +97,10 @@
         />
         
       </form>
+      
+      <p id="heure">
+      </p>
+      
     </div>
     <!-- Appel du fichier javascript -->
     <script type="text/javascript" src="javascript/script.js"></script>

@@ -23,9 +23,9 @@ function changer_cote_float()
 }
 
 /* Fonction qui affiche l'heure machine */
-function heure_minute_seconde()
+function heure_machine()
 {
-  var 
+  var item = document.getElementById('heure');
   var now = new Date()
   var h = now.getHours(), m = ladate.getMinutes(), s = ladate.getSeconds();
   if (h<10)
@@ -40,11 +40,13 @@ function heure_minute_seconde()
   {
     s = "0" + s;
   }
-
+  item = "Heure machine " + h + ":" + m + ":" + s;
 }
-document.write("Heure brute : ");
-document.write(ladate.getHours()+":"+ladate.getMinutes()+":"+ladate.getSeconds())
-document.write("<BR>");
-document.write("Heure formatée : ");
-document.write(h+":"+m+":"+s)
-</script>
+
+/* Fonction d'initialisation de la page : formulaire + heure */
+function init()
+{
+  heure_machine();
+}
+
+init();
