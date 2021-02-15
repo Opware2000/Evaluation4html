@@ -1,12 +1,24 @@
 function changer_cote_float()
 {
-  var css = document.getElementById('imageflottante').style.float;
-  if (css == 'right')
+  var item = document.getElementById('imageflottante');
+  if (item.style.float == 'right')
     {
-      css = 'left';
+      item.style.float = 'left';
+      item.style.marginLeft = "0";
+      item.style.marginRight= "10px";
     }
   else
     {
-      css ='right';
+      item.style.float ='right';
+      item.style.marginLeft = "10px";
+      item.style.marginRight= "0px";
     }
+}
+
+function raz_image()
+{
+  var item = document.getElementById('imageflottante');
+  item.style.float = 'left';
+  item.style.marginLeft = "0";
+  item.style.marginRight= "10px";
 }
