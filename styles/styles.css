@@ -59,7 +59,20 @@ span.fonction {
   font-weight: bold;
   color: #BB2222;
 }
-.imageflottante {
+
+/* Présentation */
+#imageflottante {
   float: left;
   margin-right: 10px;
+}
+p.presentation {
+  text-align: justify;
+  line-height: 1.5em;
+}
+
+/* Mise en page */
+.contenu {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
