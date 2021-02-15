@@ -89,12 +89,23 @@
           </tr>
         </tbody>
       </table>
-      
+
       <form id="positionImage" method="post">
-        <button onclick="changer_cote_float();">Changer de côté l'image</button>
+        <input
+          type="button"
+          onclick="changer_cote_float();"
+          value="Changer de côté l'image"
+        />
+        <input
+          type="button"
+          id="raz"
+          name="raz"
+          onclick="init();"
+          value="Remise à zéro"
+        />
       </form>
     </div>
-    <script  type="text/javascript" src="javascript/script.js">
-    </script>
+    <!-- Appel du fichier javascript -->
+    <script type="text/javascript" src="javascript/script.js"></script>
   </body>
 </html>
