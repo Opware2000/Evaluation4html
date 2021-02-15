@@ -4,7 +4,12 @@
   font-size: 14px;
   font-weight: normal;
   background-color: #DDD;
-  background-image: url("background.png");
+  
+}
+body {
+  
+  background-image: url("https://cdn.glitch.com/c6015833-87c7-4dfe-8a04-c1c8b982c29d%2Fbackground.png?v=1613405490680");
+
 }
 /* Titre de la page */
 h1.titre_page {
@@ -55,7 +60,7 @@ h1.titre_page {
   font-style: italic;
   font-weight: bold;
   text-align: center;
-  vertical-align: top;
+  vertical-align: center;
 }
 .tableau .tableau-fonction {
   border-color: #000000;
@@ -66,7 +71,7 @@ h1.titre_page {
 .tableau .tableau-element {
   border-color: #000000;
   text-align: center;
-  vertical-align: top;
+  vertical-align: center;
 }
 .tableau .tableau-entete {
   border-color: #000000;
@@ -89,6 +94,10 @@ h1.titre_page {
 }
 .tableau .pas-bordure{
   border:0;
+}
+.tableau .champ_reponse{
+  color: #0000fe;
+  font-weight:bold;
 }
 
 span.entree {

@@ -27,7 +27,7 @@ function heure_machine()
 {
   var item = document.getElementById('heure');
   var now = new Date()
-  var h = now.getHours(), m = ladate.getMinutes(), s = ladate.getSeconds();
+  var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
   if (h<10)
   {
     h = "0" + h;
@@ -40,7 +40,7 @@ function heure_machine()
   {
     s = "0" + s;
   }
-  item = "Heure machine " + h + ":" + m + ":" + s;
+  item.innerHTML = "Heure machine " + h + ":" + m + ":" + s;
 }
 
 /* Fonction d'initialisation de la page : formulaire + heure */

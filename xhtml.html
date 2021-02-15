@@ -60,6 +60,8 @@
           l'image !</a
         >
       </p>
+      <form id="reponse" method="post">
+        
 
       <table class="tableau">
 <thead>
@@ -74,13 +76,20 @@
     <td class="tableau-parametres pas-bordure-bas" >B</td>
   </tr>
   <tr>
-    <td class="tableau-fonction" colspan="2">fonction A &amp; B</td>
+    <td class="tableau-fonction" colspan="2">
+       <select name="fonction_choisie"> 
+         <option value="et">fonction A &amp; B </option>
+         <option value="ou">fonction A OU B </option>
+         <option value="not">fonction NON B </option>
+         <option value="xor">fonction A OU EXCLUSIF B </option>
+      </select>
+    </td>
     <td class="tableau-parametres  pas-bordure-haut">0</td>
   </tr>
   <tr>
     <td class="tableau-parametres pas-bordure-droite" rowspan="2" >A</td>
     <td class="tableau-parametres pas-bordure-gauche" rowspan="2">0</td>
-    <td class="tableau-element pas-bordure-bas"><input type="text" name="reponse" value="votre"/></td>
+    <td class="tableau-element pas-bordure-bas"><input class="champ_reponse" type="text" name="reponse" value="" placeholder="votre réponse"/></td>
   </tr>
   <tr>
     <td class="tableau-element pas-bordure-haut" >
@@ -88,7 +97,7 @@
   </tr>
 </tbody>
 </table>
-
+      </form>
       <form id="positionImage" method="post">
         <input
           type="button"
