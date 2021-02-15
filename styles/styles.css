@@ -44,14 +44,6 @@ p {
 }
 
 /* Tableau */
-.tableau {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .tableau td {
   border-color: black;
   border-style: solid;
@@ -75,32 +67,41 @@ p {
   word-break: normal;
 }
 
+.tableau {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .tableau .tableau-parametres {
   border-color: #000000;
   font-style: italic;
   font-weight: bold;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
 }
 
 .tableau .tableau-fonction {
   border-color: #000000;
   color: #fe0000;
   text-align: center;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .tableau .tableau-element {
   border-color: #000000;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
 }
 
 .tableau .tableau-entete {
   border-color: #000000;
   font-weight: bold;
   text-align: center;
-  vertical-align: top;
+  vertical-align: middle;
   border: 0;
 }
 
@@ -130,11 +131,11 @@ p {
 }
 
 .aligne_droite {
-  text-align: right;
+  text-align: right !important;
 }
 
 .aligne_gauche {
-  text-align: left;
+  text-align: left !important;
 }
 
 .largeur30 {
@@ -166,6 +167,10 @@ span.entree {
 p.presentation {
   text-align: justify;
   line-height: 1.5em;
+}
+
+.gras {
+  font-weight: bold;
 }
 
 /* Mise en page */
