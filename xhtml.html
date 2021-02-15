@@ -64,11 +64,7 @@
 
         
         
-        <select name="Fonction logique">
-          <option value="and" selected="selected">and</option>
-          <option value="or">or</option>
-          <option value="xor">xor</option>
-        </select>
+        
         
      
         
@@ -80,25 +76,25 @@
   </tr>
 </thead>
 <tbody>
+  
   <tr>
-    <td class="tableau-element pas-bordure"></td>
-    <td class="tableau-element pas-bordure"></td>
-    <td class="tableau-parametres pas-bordure-bas" >B</td>
-  </tr>
-  <tr>
-    <td class="tableau-fonction" colspan="2">
-       
+    <td class="tableau-fonction" colspan="2">Fonction logique 
+       <select name="Fonction logique">
+          <option value="and" selected="selected">and</option>
+          <option value="or">or</option>
+          <option value="xor">xor</option>
+        </select>
     </td>
-    <td class="tableau-parametres  pas-bordure-haut">
+    <td class="tableau-parametres">B&nbsp;&nbsp;&nbsp;
       <input type="radio" name="valeur b" value="0" id="a 0" /> <label for="0">0</label>
         <input type="radio" name="valeur b" value="1" id="a 1" /> <label for="1">1</label>
     </td>
   </tr>
   <tr>
-    <td class="tableau-parametres pas-bordure-droite" rowspan="2" >A</td>
-    <td class="tableau-parametres pas-bordure-gauche" rowspan="2"><input type="radio" name="valeur a" value="0" id="a 0" /> <label for="0">0</label>
+    <td class="tableau-parametres pas-bordure-droite aligne_droite largeur30" rowspan="2" >A&nbsp;&nbsp;&nbsp;</td>
+    <td class="tableau-parametres pas-bordure-gauche largeur30 aligne_gauche" rowspan="2"><input type="radio" name="valeur a" value="0" id="a 0" /> <label for="0">0</label>
         <input type="radio" name="valeur a" value="1" id="a 1" /> <label for="1">1</label></td>
-    <td class="tableau-element pas-bordure-bas"><input class="champ_reponse" type="text" name="reponse" value="" placeholder="votre réponse"/></td>
+    <td class="tableau-element pas-bordure-bas largeur30"><input class="champ_reponse" type="text" name="reponse" value="" placeholder="votre réponse"/></td>
   </tr>
   <tr>
     <td class="tableau-element pas-bordure-haut" >
@@ -107,14 +103,16 @@
 </tbody>
 </table>
       </form>
-      <form id="positionImage" method="post">
+      <div class="position_bouton">
+        <form id="positionImage" method="post">
         <input
           type="button"
           onclick="changer_cote_float();"
           value="Changer de côté l'image"
-        />
-        
+        />  
       </form>
+      </div>
+      
       
       <p id="heure">
       </p>

@@ -8,17 +8,20 @@
 function changer_cote_float()
 {
   var item = document.getElementById('imageflottante');
+  var bouton = document.getElementById('position_bouton');
   if (item.style.float == 'right')
     {
       item.style.float = 'left';
       item.style.marginLeft = "0";
       item.style.marginRight= "10px";
+      bouton.style.float = 'left';
     }
   else
     {
       item.style.float ='right';
       item.style.marginLeft = "10px";
       item.style.marginRight= "0px";
+      bouton.style.float = 'right';
     }
 }
 

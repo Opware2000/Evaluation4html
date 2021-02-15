@@ -108,7 +108,15 @@ h1.titre_page {
   color: #0000fe;
   font-weight: bold;
 }
-
+.tableau .aligne_droite {
+  text-align:right;
+}
+.tableau .aligne_gauche {
+  text-align:left;
+}
+.tableau .largeur30 {
+  width:30%;
+}
 span.entree {
   font-weight: bold;
   font-style: italic;
@@ -136,4 +144,8 @@ p.presentation {
   background-color: #DDD;
   height: 95%
   overflow: scroll;
+}
+
+.position_bouton{
+  text-align:left;
 }
