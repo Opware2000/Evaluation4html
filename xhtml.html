@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
   <head>
-    <title>Titre de la page</title>
+    <title>Logique booléenne - Evaluation HTML CSS Javascript</title>
     <meta name="keywords" lang="fr" content="logique,booleenne,binaire" />
     <meta name="author" content="Marc Bouché Pillon, Nicolas Ogier" />
     <meta name="description" content="Apprendre la logique Booléenne" />
@@ -15,20 +15,27 @@
       <h1 class="titre_page">
         Logique booléenne
       </h1>
-
-      <a
-        id="imageflottante"
-        href="https://fr.wikipedia.org/wiki/George_Boole"
-        target="_blank"
-        title="Présentation de George Boole sur Wikipédia"
-      >
-        <img
-          src="https://cdn.glitch.com/c6015833-87c7-4dfe-8a04-c1c8b982c29d%2FGeorge_Boole.jpg?v=1613400878481"
-          width="360"
-          height="480"
-          alt="Portrait de George Boole, "
-        />
-      </a>
+      <div id="imageflottante">
+        <a
+          href="https://fr.wikipedia.org/wiki/George_Boole"
+          target="_blank"
+          title="Présentation de George Boole sur Wikipédia"
+        >
+          <img
+            src="https://cdn.glitch.com/c6015833-87c7-4dfe-8a04-c1c8b982c29d%2FGeorge_Boole.jpg?v=1613400878481"
+            width="360"
+            height="480"
+            alt="Portrait de George Boole, "
+          />
+        </a>
+        <form id="positionImage" method="post">
+          <input
+            type="button"
+            onclick="changer_cote_float();"
+            value="Changer de côté l'image"
+          />
+        </form>
+      </div>
 
       <p class="presentation">
         "George Boole, n&eacute; le 2 novembre 1815 &agrave; Lincoln
@@ -61,40 +68,124 @@
         >
       </p>
 
+      <form id="formulaire" method="post">
+        <fieldset>
+          <legend>
+            Paramètres
+          </legend>
+          <table class="tableau_etire">
+            <tr>
+              <td class="largeur30 pas_bordure">
+                Fonction logique
+                <select name="Fonction logique">
+                  <option value="and" selected="selected">and</option>
+                  <option value="or">or</option>
+                  <option value="xor">xor</option>
+                </select>
+              </td>
+              <td class="largeur30 pas_bordure">
+                Valeur de A :<br />
+                <input
+                  type="radio"
+                  name="valeura"
+                  value="0"
+                  id="a0"
+                  checked="checked"
+                />
+                <label for="0">0</label>
+                <input type="radio" name="valeura" value="1" id="a1" />
+                <label for="1">1</label>
+              </td>
+              <td class="largeur30 pas_bordure">
+                Valeur de B :<br />
+                <input
+                  type="radio"
+                  name="valeurb"
+                  value="0"
+                  id="b0"
+                  checked="checked"
+                />
+                <label for="0">0</label>
+                <input type="radio" name="valeurb" value="1" id="b1" />
+                <label for="1">1</label>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <table class="tableau_etire">
+          <tr>
+            <td class="largeur30">
+              <input type="checkbox" name="table_verite" id="table_verite" />
+              <label for="table_verite">Afficher la table de vérité</label>
+            </td>
+            <td class="largeur30">
+              <input type="checkbox" name="question" id="question" />
+              <label for="question">Afficher une question</label>
+            </td>
+            <td class="largeur30">
+              <input type="checkbox" name="question" id="reponse" />
+              <label for="response">Afficher la réponse</label>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <input type="button" onclick="creer_exercice()" value="Créer l'exercice" />
+            </td>
+          </tr>
+        </table>
+      </form>
+
       <table class="tableau">
         <thead>
           <tr>
-            <th class="tableau-cellule" colspan="3">Table de vérité</th>
+            <th class="tableau-entete" colspan="3">Table de vérité</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="tableau-cellule">
-              <span class="fonction">fonction A &amp; B</span>
+            <td class="tableau-fonction" colspan="2">
+              <span id="valeur_fonction_logique">Fonction logique</span>
             </td>
-            <td class="tableau-cellule" colspan="2">
-              <span class="entree">Entrée B</span>
+            <td class="tableau-parametres">
+              B&nbsp;&nbsp;&nbsp; <span id="valeurB"></span>
             </td>
           </tr>
           <tr>
-            <td class="tableau-cellule" rowspan="2">
-              <span class="entree">Entrée A</span>
+            <td
+              class="tableau-parametres pas-bordure-droite aligne_droite largeur30"
+              rowspan="2"
+            >
+              A&nbsp;&nbsp;&nbsp;
             </td>
-            <td class="tableau-cellule">0</td>
-            <td class="tableau-cellule">0</td>
+            <td
+              class="tableau-parametres pas-bordure-gauche largeur30 aligne_gauche"
+              rowspan="2"
+            >
+              <span id="valeurA"></span>
+            </td>
+            <td class="tableau-element pas-bordure-bas largeur30">
+              <input
+                class="champ_reponse"
+                type="text"
+                name="reponse"
+                value=""
+                placeholder="votre réponse"
+              />
+            </td>
           </tr>
           <tr>
-            <td class="tableau-cellule">0</td>
-            <td class="tableau-cellule">1</td>
+            <td class="tableau-element pas-bordure-haut">
+              <input type="button" onclick="verif();" value="Vérifier" />
+              <input type="button" onclick="init();" value="Réinitialiser" />
+            </td>
           </tr>
         </tbody>
       </table>
-      
-      <form id="positionImage" method="post">
-        <button onclick="changer_cote_float();">Changer de côté l'image</button>
-      </form>
-      <script  type="text/javascript" src="javascript/script.js">
-      </script>
+
+      <p id="heure"></p>
     </div>
+    <!-- Appel du fichier javascript -->
+    <script type="text/javascript" src="javascript/script.js"></script>
   </body>
 </html>
