@@ -89,19 +89,19 @@ h1.titre_page {
   vertical-align: top;
   border: 0;
 }
-.tableau .pas-bordure-droite {
+.pas-bordure-droite {
   border-right: 0;
 }
-.tableau .pas-bordure-bas {
+.pas-bordure-bas {
   border-bottom: 0;
 }
-.tableau .pas-bordure-gauche {
+.pas-bordure-gauche {
   border-left: 0;
 }
-.tableau .pas-bordure-haut {
+.pas-bordure-haut {
   border-top: 0;
 }
-.tableau .pas-bordure {
+ .pas-bordure {
   border: 0;
 }
  .champ_reponse {
@@ -116,6 +116,10 @@ h1.titre_page {
 }
  .largeur30 {
   width:30%;
+}
+.tableau_etire{
+  width:100%;
+  text-align:center;
 }
 span.entree {
   font-weight: bold;

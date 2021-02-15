@@ -72,27 +72,45 @@
       <form id="reponse" method="post">
 
         
+        
         <fieldset>
           <legend>
             Paramètres
           </legend>
-          <table class="">
+          <table class="tableau_etire">
             <tr>
-            <td class="largeur30">Fonction logique 
+            <td class="largeur30 pas_bordure">Fonction logique 
               <select name="Fonction logique">
                 <option value="and" selected="selected">and</option>
                 <option value="or">or</option>
                 <option value="xor">xor</option>
               </select>
             </td>
-            <td class="largeur30">Valeur de A :
+            <td class="largeur30 pas_bordure">Valeur de A :
               <input type="radio" name="valeur a" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
               <input type="radio" name="valeur a" value="1" id="a 1" /> <label for="1">1</label></td>
-            <td class="largeur30">Valeur de B :
-              <input type="radio" name="valeur b" value="0" id="a 0" checked="checked" /> <label for="0">0</label>
-              <input type="radio" name="valeur b" value="1" id="a 1" /> <label for="1">1</label>
+            <td class="largeur30 pas_bordure">Valeur de B :
+              <input type="radio" name="valeur b" value="0" id="b 0" checked="checked" /> <label for="0">0</label>
+              <input type="radio" name="valeur b" value="1" id="b 1" /> <label for="1">1</label>
             </td>
             </tr>
+            <tr>
+              <td class="largeur30"> 
+                <input type="checkbox" name="table_verite" id="table_verite" checked="checked"/>
+                <label for="table_verite">Afficher la table de vérité</label>
+              </td>
+              <td class="largeur30"> 
+                <input type="checkbox" name="question" id="question" />
+                <label for="question">Afficher une question</label>
+              </td>
+              <td class="largeur30"> 
+                <input type="checkbox" name="reponse" id="reponse" />
+                <label for="response">Afficher la réponse</label>
+              </td>
+            </tr>
+            <tr>
+            <td colspan=3><input type="button" onclick="" value="Créer l'exercice" />
+              </td></tr>
           </table>
           
           
@@ -122,7 +140,7 @@
   </tr>
   <tr>
     <td class="tableau-parametres pas-bordure-droite aligne_droite largeur30" rowspan="2" >A&nbsp;&nbsp;&nbsp;</td>
-    <td class="tableau-parametres pas-bordure-gauche largeur30 aligne_gauche" rowspan="2">
+    <td class="tableau-parametres pas-bordure-gauche largeur30 aligne_gauche" rowspan="2"><span></span>
       </td>
     <td class="tableau-element pas-bordure-bas largeur30"><input class="champ_reponse" type="text" name="reponse" value="" placeholder="votre réponse"/></td>
   </tr>
