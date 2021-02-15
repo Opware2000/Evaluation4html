@@ -70,9 +70,9 @@ function creer_exercice(){
     b = b1.value;
   }
   
-  valeurA.innerHtml=' vaut '+a;
-  valeurB.innerHtml=' vaut '+b;
-  console.log(a0,a1,b0,b1,valeurA, valeurB,a,b)
+  valeurA.innerHTML=' vaut '+a;
+  valeurB.innerHTML=' vaut '+b;
+  console.log(a,b)
   
 }
 
