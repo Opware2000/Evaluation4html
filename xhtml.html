@@ -61,6 +61,16 @@
         >
       </p>
       <form id="reponse" method="post">
+
+        
+        
+        <select name="Fonction logique">
+          <option value="and" selected="selected">and</option>
+          <option value="or">or</option>
+          <option value="xor">xor</option>
+        </select>
+        
+     
         
 
       <table class="tableau">
@@ -77,18 +87,17 @@
   </tr>
   <tr>
     <td class="tableau-fonction" colspan="2">
-       <select name="fonction_choisie"> 
-         <option value="et">fonction A &amp; B </option>
-         <option value="ou">fonction A OU B </option>
-         <option value="not">fonction NON B </option>
-         <option value="xor">fonction A OU EXCLUSIF B </option>
-      </select>
+       
     </td>
-    <td class="tableau-parametres  pas-bordure-haut">0</td>
+    <td class="tableau-parametres  pas-bordure-haut">
+      <input type="radio" name="valeur b" value="0" id="a 0" /> <label for="0">0</label>
+        <input type="radio" name="valeur b" value="1" id="a 1" /> <label for="1">1</label>
+    </td>
   </tr>
   <tr>
     <td class="tableau-parametres pas-bordure-droite" rowspan="2" >A</td>
-    <td class="tableau-parametres pas-bordure-gauche" rowspan="2">0</td>
+    <td class="tableau-parametres pas-bordure-gauche" rowspan="2"><input type="radio" name="valeur a" value="0" id="a 0" /> <label for="0">0</label>
+        <input type="radio" name="valeur a" value="1" id="a 1" /> <label for="1">1</label></td>
     <td class="tableau-element pas-bordure-bas"><input class="champ_reponse" type="text" name="reponse" value="" placeholder="votre réponse"/></td>
   </tr>
   <tr>

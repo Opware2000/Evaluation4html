@@ -3,14 +3,23 @@
   font-family: Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
-  background-color: #DDD;
-  
 }
-body {
-  
-  background-image: url("https://cdn.glitch.com/c6015833-87c7-4dfe-8a04-c1c8b982c29d%2Fbackground.png?v=1613405490680");
 
+body {
+  background: url("https://cdn.glitch.com/c6015833-87c7-4dfe-8a04-c1c8b982c29d%2Fbackground%20copie.png?v=1613405741365");
 }
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
 /* Titre de la page */
 h1.titre_page {
   display: block;
@@ -78,26 +87,26 @@ h1.titre_page {
   font-weight: bold;
   text-align: center;
   vertical-align: top;
-  border:0;
+  border: 0;
 }
-.tableau .pas-bordure-droite{
-  border-right:0;
+.tableau .pas-bordure-droite {
+  border-right: 0;
 }
-.tableau .pas-bordure-bas{
-  border-bottom : 0;
+.tableau .pas-bordure-bas {
+  border-bottom: 0;
 }
-.tableau .pas-bordure-gauche{
-  border-left:0;
+.tableau .pas-bordure-gauche {
+  border-left: 0;
 }
-.tableau .pas-bordure-haut{
-  border-top :0;
+.tableau .pas-bordure-haut {
+  border-top: 0;
 }
-.tableau .pas-bordure{
-  border:0;
+.tableau .pas-bordure {
+  border: 0;
 }
-.tableau .champ_reponse{
+.tableau .champ_reponse {
   color: #0000fe;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 span.entree {
@@ -124,4 +133,7 @@ p.presentation {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  background-color: #DDD;
+  height: 95%
+  overflow: scroll;
 }
