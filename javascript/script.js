@@ -49,9 +49,30 @@ function creer_exercice(){
   var valeurA = document.getElementById('valeurA') ;
   var valeurB = document.getElementById('valeurB') ;
   var nomFonction = document.getElementById('valeur_fonction_logique');
+  /* Récupère les boutons radio */
+  var a0 = document.getElementById('a0');
+  var a1 = document.getElementById('a1');
+  var b0 = document.getElementById('b0');
+  var b1 = document.getElementById('b1');
   
-  valeurA.innerHtml=' vaut ';
-  valeurB.innerHtml=' vaut '
+  var a, b ;
+  /* Vérification*/
+  if (a0.checked){
+    a = a0.value;
+  }
+   if (a1.checked){
+    a = a1.value;
+  }
+   if (b0.checked){
+    b = b0.value;
+  }
+   if (b1.checked){
+    b = b1.value;
+  }
+  
+  valeurA.innerHtml=' vaut '+a;
+  valeurB.innerHtml=' vaut '+b;
+  console.log(a0,a1,b0,b1,valeurA, valeurB,a,b)
   
 }
 
