@@ -166,6 +166,21 @@ function init() {
   raz();
 }
 
+
+/* Fonction vérification */
+function verif() {
+
+}
+
+/* Affichage boite de messages */
+function affichage_message(texte) {
+  boiteMessage.style.display = 'block';
+  var html = ' <div class="alerte"> \
+   <span class = "fermeture"  onclick = "this.parentElement.style.display=\'none \';" > &times; </span>' + texte + ' </div> ';
+  boiteMessage.innerHTML = html;
+  console.log(texte);
+}
+
 /* Fonction de remise à zéro du formulaire */
 function raz() {
   /* Récupération des données du formulaire */
