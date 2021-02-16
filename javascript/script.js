@@ -64,13 +64,42 @@ function rafraichir() {
 }
 
 /* Création de l'exercice */
+function creation_exercice() {
+  
+}
 
-function creer_exercice() {
-  /* Récupération des données du formulaire */
 
-  /* Récupère le nom de la fonction affichée dans le menu déroulant */
-
+/* Vérification du formulaire, et enregistrement des valeurs */
+function verif() {
+  // on teste si le sessionStorage fonctionne
+  if (typeof sessionStorage == "undefined") {
+    return;
+  }
+  
+  /* Récupération de la fonction affichée dans le menu déroulant */
   var menuDeroulantChoix = menuDeroulant.selectedIndex;
+  
+  
+  
+    var nbvisites = localStorage.getItem("visites");
+    // Vérification de la présence du compteur
+    if (nbvisites != null) {
+      // Si oui, on convertit en nombre entier la chaîne de texte qui fut stockée
+      nbvisites = parseInt(nbvisites);
+    } else {
+      nbvisites = 0;
+    }
+    // Incrémentation
+    nbvisites++;
+    // Stockage à nouveau en attendant la prochaine visite...
+    localStorage.setItem("visites", nbvisites);
+    // Affichage dans la page
+    document.getElementById("visites").innerHTML = nbvisites;
+  } else {
+    alert("localStorage n'est pas supporté");
+  }
+
+
   var menuDeroulantValeur = menuDeroulant.options[menuDeroulantChoix].value;
   var menuDeroulantTexte = menuDeroulant.options[menuDeroulantChoix].text;
   /* Récupère les cases à cocher */
@@ -164,8 +193,8 @@ function creer_exercice() {
   }
 }
 
-/* Fonction vérification */
-function verif() {
+/* Fonction de validation de la réponse élève */
+function valider_reponse() {
   var reponseEleve = document.getElementById("reponseEleve").value;
   reponseEleve = reponseEleve.toUpperCase();
   /* On traite juste le cas où l'élève réponds un mot, ou les valeurs 1 et 0 */
