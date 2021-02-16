@@ -192,17 +192,17 @@ function valider_reponse() {
   
   /* calcul de la bonne reponse */
   var bonneReponse;
-  switch (menuDeroulant.options[sessionStorage.get("fonction")].value) {
+  switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
     case "and":
-      bonneReponse = parseInt(sessionStorage.get("a")) && parseInt(sessionStorage.get("b"));
+      bonneReponse = parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b"));
       break;
     case "xor":
        // simulation du xor car javascript n'a pas de xor pour des booléens
-      bonneReponse = ((parseInt(sessionStorage.get("a")) && !parseInt(sessionStorage.get("b"))) ||
-                     (!parseInt(sessionStorage.get("a")) && parseInt(sessionStorage.get("b"))));
+      bonneReponse = (parseInt(sessionStorage.getItem("a")) && !parseInt(sessionStorage.getItem("b"))) ||
+                     (!parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b")));
       break;
     case "or":
-      bonneReponse = parseInt(sessionStorage.get("a")) || parseInt(sessionStorage.get("b"));
+      bonneReponse = parseInt(sessionStorage.getItem("a")) || parseInt(sessionStorage.getItem("b"));
       break;
     default:
       break;
@@ -247,7 +247,6 @@ function affichage_message(texte, type) {
 
 /* Fonction de remise à zéro du formulaire */
 function raz() {
-  /* Récupération des données du formulaire */
   /* Récupère les boutons radio */
   var a0 = document.getElementById("a0");
   var a1 = document.getElementById("a1");
@@ -283,37 +282,17 @@ function raz() {
   tableauQuestion.style.display = "none";
   boiteMessage.style.display = "none";
   reponseEleve.value = "votre réponse";
+  /* on efface les donnees stockees */
+  sessionStorage.clear();
 }
 
-/* Fonction de stockage du nombre de visites de la page en localStorage */
-function nombre_de_visites() {
-  if (typeof localStorage != "undefined") {
-    // Récupération de la valeur dans web storage
-    var nbvisites = localStorage.getItem("visites");
-    // Vérification de la présence du compteur
-    if (nbvisites != null) {
-      // Si oui, on convertit en nombre entier la chaîne de texte qui fut stockée
-      nbvisites = parseInt(nbvisites);
-    } else {
-      nbvisites = 0;
-    }
-    // Incrémentation
-    nbvisites++;
-    // Stockage à nouveau en attendant la prochaine visite...
-    localStorage.setItem("visites", nbvisites);
-    // Affichage dans la page
-    document.getElementById("visites").innerHTML = nbvisites;
-  } else {
-    alert("localStorage n'est pas supporté");
-  }
-}
 
 /* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
   heure_machine();
   raz();
-  nombre_de_visites();
 }
+
 
 /* appelle l'intialisation au chargement du script */
 init();
