@@ -256,6 +256,10 @@ div.centre {
   display: none;
 }
 
+#boiteMessage {
+  margin-top: 50px;
+}
+
 /* Message */
 .alerte {
   padding: 20px;
@@ -287,4 +291,8 @@ div.centre {
 /* When moving the mouse over the close button */
 .fermeture:hover {
   color: black;
+}
+
+.italique {
+  font-style: italic;
 }

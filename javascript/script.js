@@ -81,18 +81,36 @@ function creer_exercice() {
   boiteMessage.style.display = 'none';
   // console.log('Alerte ' + boiteMessage.style.display);
   if (menuDeroulantValeur == '0') {
-    affichage_message('<span class="gras">Choisir une fonction logique</span>');
+    affichage_message('<span class="gras">Choisir une fonction logique</span>', 0);
   } else {
     nomFonction.innerHTML = 'Fonction logique <span class="gras">' + menuDeroulantTexte.toUpperCase() + "</span>";
     //console.log('Choix de la fonction ' + menuDeroulantValeur);
-
+    /* Récupère les boutons radio */
+    var a0 = document.getElementById('a0');
+    var a1 = document.getElementById('a1');
+    var b0 = document.getElementById('b0');
+    var b1 = document.getElementById('b1');
+    var a, b;
+    /* Vérification des boutons radio*/
+    if (a0.checked) {
+      a = a0.value;
+    }
+    if (a1.checked) {
+      a = a1.value;
+    }
+    if (b0.checked) {
+      b = b0.value;
+    }
+    if (b1.checked) {
+      b = b1.value;
+    }
 
     tableVeriteOR.style.display = 'none';
     tableVeriteXOR.style.display = 'none';
     tableVeriteAND.style.display = 'none';
     if ((caseQuestion.checked == false) && (caseReponse.checked == false) && (caseTableVerite.checked == false)) {
       /* Aucune case n'est cochée */
-      affichage_message('Choisir quelque chose à faire');
+      affichage_message('Choisir quelque chose à faire', 0);
     }
     /* Vérification des cases à cocher */
     if (caseTableVerite.checked) {
@@ -148,6 +166,7 @@ function init() {
 function verif() {
   var reponseEleve = document.getElementById('reponseEleve').value;
   reponseEleve = reponseEleve.toUpperCase();
+  /* On traite juste le cas où l'élève réponds un mot, ou les valeurs 1 et 0 */
   if ((reponseEleve == 'VRAI') || (reponseEleve == 'VRAIE')) {
     reponseEleve = 1;
   }
@@ -196,8 +215,19 @@ function verif() {
     default:
       break;
   }
+  var caseReponse = document.getElementById('reponse');
+  var reponse = '';
+  if (caseReponse.checked) {
+    if (bonneReponse == true) {
+      reponse = 'Le résultat est <span class="italique">VRAI</span>.';
+    } else {
+      reponse = 'Le résultat est <span class="italique">FAUX</span>.';
+    }
+  }
   if (reponseEleve == bonneReponse) {
-    affichage_message('BONNE R&Aecute;PONSE !', 1)
+    affichage_message('BONNE R&Eacute;PONSE ! ' + reponse, 1)
+  } else {
+    affichage_message('MAUVAISE R&Eacute;PONSE ! ' + reponse, 0);
   }
 }
 
@@ -205,7 +235,7 @@ function verif() {
 function affichage_message(texte, type) {
   boiteMessage.style.display = 'block';
   var html = ''
-  if (type = 0) {
+  if (type == 0) {
     html = ' <div class="alerte">';
   } else {
     html = ' <div class="alerte reussite">';
