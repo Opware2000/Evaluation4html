@@ -1,78 +1,237 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="styles/styles_html5.css" />
-		
-		<!-- Pour que l'affichage s'adapte bien sur les smartphones -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="styles/styles_html5.css" />
+
+	<!-- Pour que l'affichage s'adapte bien sur les smartphones -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-		<title>Apprendre l'algèbre de Boole| HTML5  </title> 
-		<meta name="Description" content="Apprendre l'algèbre de Boole"/> 
-		<meta name="author" content="Bob l'éponge" />
-		<meta name="Keywords" content="a, b, c"/> 
-		<!-- déclaration des fichiers de scripts -->
-		<script type="text/javascript" src="/javascript/script.js"></script>
+	<title>Apprendre l'algèbre de Boole| HTML5 </title>
+	<meta name="keywords" lang="fr" content="logique,booleenne,binaire" />
+	<meta name="author" content="Marc Bouch&eacute; Pillon, Nicolas Ogier" />
+	<meta name="description" content="Apprendre la logique Bool&eacute;enne" />
 
-	</head>
-	<body>
-	
-		
+</head>
 
-		<!-- Pour la structure, ce site explique très bien : http://www.siteduzero.com/tutoriel-3-561847-structurer-sa-page.html -->
-		<div id="bloc_page">
-			<header>
-				<div id="titre_principal">
-					<h1>Mon Titre</h1> <!-- Très important pour le référencement -->
-				</div>
+<body>
 
-				<nav>
-  <ul>
-    <li class="deroulant"><a href="#">Cours Complets &ensp;</a>
-      <ul class="sous">
-        <li><a href="#">Cours HTML et CSS</a></li>
-        <li><a href="#">Cours JavaScript</a></li>
-        <li><a href="#">Cours PHP et MySQL</a></li>
-      </ul>
-    </li>
-    <li class="deroulant"><a href="#">Articles &ensp;</a>
-      <ul class="sous">
-        <li><a href="#">CSS display</a></li>
-        <li><a href="#">CSS position</a></li>
-        <li><a href="#">CSS float</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">A propos</a></li>
-  </ul>
-</nav>
-			</header>
 
-			<section>
-				<article>
-					
+	<div id="bloc_page">
+		<header>
+			<h1>Algèbre Booléenne</h1>
+
+			<nav>
+				<ul>
+					<li class="deroulant"><a href="#">Cours complets &ensp;</a>
+						<ul class="sous">
+							<li><a href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)"
+									target="_blank">Page Wikipédia sur l'algèbre de Boole</a></li>
+							<li><a href="http://www.monlyceenumerique.fr/nsi_premiere/bases_b/b5_cours_sur_les_booleens.php"
+									target="_blank">Cours
+									sur Mon Lycée Numérique</a></li>
+						</ul>
+					</li>
+					<li><a href="./xhtml.html">Exerciseur en XHTML</a></li>
+					<li><a href="#lectureFormulaires">Lecture des formulaires</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="content">
+			<main>
+
+				<article id="texte">
+					<section>
+						<h2>Qui est Boole ?</h2>
+						<p class="presentation">
+							<blockquote>
+								"George Boole, n&eacute; le 2 novembre 1815 &agrave; Lincoln
+								(Royaume-Uni) et mort le 8 d&eacute;cembre 1864 &agrave; Ballintemple
+								(Irlande), est un logicien, math&eacute;maticien et philosophe
+								britannique. Il est le cr&eacute;ateur de la logique moderne,
+								fond&eacute;e sur une structure alg&eacute;brique et s&eacute;mantique,
+								que l'on appelle alg&egrave;bre de Boole en son honneur. Il a aussi
+								travaill&eacute; dans d'autres domaines math&eacute;matiques, des
+								&eacute;quations diff&eacute;rentielles aux probabilit&eacute;s en
+								passant par l'analyse. <br />
+								Autodidacte, il publia ses premiers travaux d'alg&egrave;bre tout en
+								exer&ccedil;ant son m&eacute;tier d'instituteur et de directeur
+								d'&eacute;cole dans la r&eacute;gion de Lincoln. Ses travaux lui
+								valurent en 1844 la Royal Medal de la Royal Society, puis une chaire de
+								math&eacute;matiques &agrave; l'universit&eacute; (Queen's College) de
+								Cork en 1849. De 1844 &agrave; 1854, il cr&eacute;e une alg&egrave;bre
+								binaire, dite bool&eacute;enne, n'acceptant que deux valeurs
+								num&eacute;riques : 0 et 1. Cette alg&egrave;bre aura de nombreuses
+								applications en t&eacute;l&eacute;phonie et en informatique, notamment
+								gr&acirc;ce &agrave; Claude Shannon en 1938, pr&egrave;s d'un
+								si&egrave;cle plus tard."
+							</blockquote>
+							<a href="https://fr.wikipedia.org/wiki/George_Boole"
+								title="Pr&eacute;sentation de George Boole sur Wikip&eacute;dia" target="_blank">
+								Pour lire la suite de cet article de Wikip&eacute;dia, cliquez sur
+								l'image !</a>
+						</p>
+					</section>
+					<section>
+						<h2>Exercice sur les Booléens en Vidéo</h2>
+						<video width="90%" height="auto" controls="controls">
+							<source src="media/video_booleens_mon_lycee_numerique.mp4" type="video/mp4" />
+							Votre navigateur ne prend pas en charge la balise <code>video</code> de html5, voici le lien
+							vers
+							<a href="https://youtu.be/1vgYAl7KLE0" target="_blank">la page youtube </a>
+						</video>
+
+					</section>
+					<section>
+						<h2>Un peu de détente en musique ?</h2>
+						<audio controls src="media/Slainte-StaroftheCountyDown.mp3">
+							Votre navigateur ne prend pas en charge la balise
+							<code>audio</code> de html5.
+						</audio>
+					</section>
+					<section>
+						<h2>Contact :</h2>
+						<p>Avec ce formulaire vous pouvez me contacter directement par e-mail.</p>
+						<form id="id_form" action="mailto:example@example.com" method="post">
+							<div class="courrielFormulaire">
+								<dl class="inline-flex">
+									<dt><label for="id_nom">Nom&nbsp;:&nbsp;</label></dt>
+									<dd>
+										<input type="text" name="nom" id="id_nom" size="30" maxlength="250" value=""
+											required="required" aria-required="true" placeholder="votre nom" />
+									</dd>
+									<dt>
+										<label for="id_age">Age&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="number" name="age" min="0" max="100" step="1" id="id_age" value=""
+											placeholder="16" />
+									</dd>
+									<dt>
+										<label for="id_telephone">Numéro de téléphone&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="tel" name="telephone" id="id_telephone" size="30" maxlength="250"
+											value="" placeholder="01-23-45-67-89"
+											pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" />
+									</dd>
+									<dt>
+										<label for="id_color">Couleur du
+											message&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="color" name="color" id="id_color" value="#000000" />
+									</dd>
+									<dt>
+										<label for="id_email">Votre
+											courriel&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="email" name="email" id="id_email" size="30" maxlength="250"
+											value="" placeholder="moi@example.fr" pattern=".+@example.fr" />
+									</dd>
+									<dt><label for="niveauHtml">Votre niveau en HTML5&nbsp;:&nbsp;</label><br></dt>
+
+									<dd>
+										<input type="range" id="niveauHtml" name="range" value="30" min="0" max="100"
+											onchange="miseAJourSlider(this.value);" step="10"> <input type="text"
+											id="niveauHtmlValeur" value="" disabled="disabled">
+									</dd>
+									<dt><label for="votreMessage">Message&nbsp;:&nbsp;</label></dt>
+									<dd><textarea id="votreMessage" name="votreMessage" rows="5" cols="33"></textarea>
+									</dd>
+									<dt></dt>
+									<dd><input type="submit" name="submit" id="id_submit" value="Envoyer" />
+										<input type="submit" name="submit" id="id_submit" value="Réinitialiser" />
+									</dd>
+								</dl>
+							</div>
+						</form>
+					</section>
 				</article>
-				<aside>
-					
+				<aside id="imageflottante">
+					<section>
+						<a href="https://fr.wikipedia.org/wiki/George_Boole"
+							title="Pr&eacute;sentation de George Boole sur Wikip&eacute;dia">
+							<img src="media/George_Boole.jpg" width="100%" height="auto"
+								alt="Portrait de George Boole, " />
+						</a>
+						<form id="positionImage" method="post" action="mailto:example@example.com">
+							<p><input type="button" onclick="changer_cote_float();"
+									value="Changer de c&ocirc;t&eacute; l'image" /></p>
+						</form>
+					</section>
 				</aside>
+
+			</main>
+		</div>
+		<footer>
+			<section>
+				<h2>Crédits :</h2>
+				<article>
+					<h3>Vidéo</h3>
+					<dl>
+						<dt>Auteur :</dt>
+						<dd>Pascal Thérèse : professeur de mathématiques dans un lycée de Haute-Marne , formateur en
+							mathématiques/SNT
+						</dd>
+						<dt>Licence :</dt>
+						<dd><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Licence Creative
+								Commons Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions
+								4.0
+								International</a>
+						</dd>
+						<dt>Source :</dt>
+						<dd><a href="http://monlyceenumerique.fr/nsi_premiere/bases_b/b5_cours_sur_les_booleens.php"
+								target="_blank">Mon lycée numérique : cours sur les booléens</a></dd>
+					</dl>
+				</article>
+				<article>
+					<h3>Musique</h3>
+
+					<dl>
+						<dt>Auteur :</dt>
+						<dl><a href="https://archive.org/details/Slinte-7753">Sláinte</a></dl>
+						<dt>Track :</dt>
+						<dl>Star of the County Down</dl>
+						<dt>Licence :</dt>
+						<dl><a
+								href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</a>
+						</dl>
+						<dt>Source :</dt>
+						<dl><a href="https://auboutdufil.com/?id=555">Télécharger gratuitement Sláinte - Star of the
+								County
+								Down</a></dl>
+
+					</dl>
+
+				</article>
+			</section>
+			<section>
+				<h2>Copyright :</h2>
+				<article>
+					Marc Bouché Pillon, Nicolas Ogier : <address>Lycée Pierre Larousse, 6 rue des montagnes, 89130 TOUCY
+					</address>
+					<a href="http://creativecommons.org/licenses/by-nc/4.0/fr/" rel="license">Mis à disposition sous
+						licence
+						CC 4.0</a>
+				</article>
+			</section>
+			<section>
+				<time>
+					<span id="heure"></se>
+				</time>
+
 			</section>
 
-			<footer>
-				<div >
-				</div>
-			</footer>
-		</div> <!-- div bloc_page -->
-	</body>
+		</footer>
+	</div> <!-- div bloc_page -->
+	<form id="pageFormulaire" method="post" action="mailto:example@example.com">
+		<div><input id="page" name="page" type="hidden" value="html5" /></div>
+	</form>
+	<script type="text/javascript" src="./javascript/script.js"></script>
+</body>
+
 </html>
-
-
-
-
-
-
-
-Auteur: <a href="https://archive.org/details/Slinte-7753">Sláinte</a><br />
-Track: <b> Star of the County Down</b><br />
-Licence: <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</a><br />
-Source: <a href="https://auboutdufil.com/?id=555">Télécharger gratuitement Sláinte -  Star of the County Down</a>
