@@ -71,7 +71,7 @@ function verif() {
     alert("sessionStorage n'est pas supporté");
     return 0;
   }
-
+  
   /* Récupération de la fonction logique affichée dans le menu déroulant */
   var menuDeroulantChoix = menuDeroulant.selectedIndex;
   boiteMessage.style.display = "none";
@@ -80,10 +80,10 @@ function verif() {
     return 0;
   }
   nomFonction.innerHTML = 'Fonction logique <span class="gras">' +
-    menuDeroulant.options[menuDeroulantChoix].text.toUpperCase() +
-    "</span>";
+                          menuDeroulant.options[menuDeroulantChoix].text.toUpperCase() +
+                          "</span>";
   sessionStorage.setItem("fonction", menuDeroulantChoix);
-
+  
   /* Récupération des valeurs de A et B dans les radio boutons */
   var a0 = document.getElementById("a0");
   var a1 = document.getElementById("a1");
@@ -92,27 +92,29 @@ function verif() {
   var a, b;
   if (a0.checked) {
     a = a0.value;
-  } else {
+  }
+  else {
     a = a1.value;
   }
   if (b0.checked) {
     b = b0.value;
-  } else {
+  }
+  else {
     b = b1.value;
   }
   sessionStorage.setItem("a", a);
   sessionStorage.setItem("b", b);
-
+  
   /* Récupération des options dans les cases à cocher */
   var caseTableVerite = document.getElementById("table_verite");
   var caseQuestion = document.getElementById("question");
   var caseReponse = document.getElementById("reponse");
   if (caseQuestion.checked == false &&
-    caseReponse.checked == false &&
-    caseTableVerite.checked == false) {
-    /* Aucune case n'est cochée */
-    affichage_message("Choisir quelque chose &agrave; faire", 0);
-    return 0;
+      caseReponse.checked == false &&
+      caseTableVerite.checked == false) {
+      /* Aucune case n'est cochée */
+      affichage_message("Choisir quelque chose &agrave; faire", 0);
+      return 0;
   }
   sessionStorage.setItem("table_verite", caseTableVerite.checked);
   sessionStorage.setItem("question", caseQuestion.checked);
@@ -127,7 +129,7 @@ function affichage_exercice() {
   tableVeriteOR.style.display = "none";
   tableVeriteXOR.style.display = "none";
   tableVeriteAND.style.display = "none";
-  console.log('Table vérité ' + sessionStorage.getItem("table_verite"))
+  console.log('Table vérité ' + sessionStorage.getItem("table_verite") )
   /* affiche ou non la table de verite */
   if (sessionStorage.getItem("table_verite") == 'true') {
     switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
@@ -187,7 +189,7 @@ function valider_reponse() {
     reponseEleve = false;
   }
   sessionStorage.setItem("reponse_eleve", reponseEleve);
-
+  
   /* calcul de la bonne reponse */
   var bonneReponse;
   switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
@@ -195,9 +197,9 @@ function valider_reponse() {
       bonneReponse = parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b"));
       break;
     case "xor":
-      // simulation du xor car javascript n'a pas de xor pour des booléens
+       // simulation du xor car javascript n'a pas de xor pour des booléens
       bonneReponse = (parseInt(sessionStorage.getItem("a")) && !parseInt(sessionStorage.getItem("b"))) ||
-        (!parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b")));
+                     (!parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b")));
       break;
     case "or":
       bonneReponse = parseInt(sessionStorage.getItem("a")) || parseInt(sessionStorage.getItem("b"));
@@ -205,7 +207,7 @@ function valider_reponse() {
     default:
       break;
   }
-
+  
   /* Verification de la reponse de l'eleve */
   var caseReponse = document.getElementById("reponse");
   var reponse = "";
@@ -245,7 +247,6 @@ function affichage_message(texte, type) {
 
 /* Fonction de remise à zéro du formulaire */
 function raz() {
-  /* Récupération des données du formulaire */
   /* Récupère les boutons radio */
   var a0 = document.getElementById("a0");
   var a1 = document.getElementById("a1");
@@ -281,37 +282,17 @@ function raz() {
   tableauQuestion.style.display = "none";
   boiteMessage.style.display = "none";
   reponseEleve.value = "votre réponse";
+  /* on efface les donnees stockees */
+  sessionStorage.clear();
 }
 
-/* Fonction de stockage du nombre de visites de la page en localStorage */
-function nombre_de_visites() {
-  if (typeof localStorage != "undefined") {
-    // Récupération de la valeur dans web storage
-    var nbvisites = localStorage.getItem("visites");
-    // Vérification de la présence du compteur
-    if (nbvisites != null) {
-      // Si oui, on convertit en nombre entier la chaîne de texte qui fut stockée
-      nbvisites = parseInt(nbvisites);
-    } else {
-      nbvisites = 0;
-    }
-    // Incrémentation
-    nbvisites++;
-    // Stockage à nouveau en attendant la prochaine visite...
-    localStorage.setItem("visites", nbvisites);
-    // Affichage dans la page
-    document.getElementById("visites").innerHTML = nbvisites;
-  } else {
-    alert("localStorage n'est pas supporté");
-  }
-}
 
 /* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
   heure_machine();
   raz();
-  nombre_de_visites();
 }
+
 
 /* appelle l'intialisation au chargement du script */
 init();
