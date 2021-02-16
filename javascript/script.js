@@ -65,11 +65,7 @@ function rafraichir() {
 
 function creer_exercice() {
   /* Récupération des données du formulaire */
-  /* Récupère les boutons radio */
-  var a0 = document.getElementById('a0');
-  var a1 = document.getElementById('a1');
-  var b0 = document.getElementById('b0');
-  var b1 = document.getElementById('b1');
+
   /* Récupère le nom de la fonction affichée dans le menu déroulant */
 
   var menuDeroulantChoix = menuDeroulant.selectedIndex;
@@ -89,20 +85,7 @@ function creer_exercice() {
   } else {
     nomFonction.innerHTML = 'Fonction logique <span class="gras">' + menuDeroulantTexte.toUpperCase() + "</span>";
     //console.log('Choix de la fonction ' + menuDeroulantValeur);
-    var a, b;
-    /* Vérification des boutons radio*/
-    if (a0.checked) {
-      a = a0.value;
-    }
-    if (a1.checked) {
-      a = a1.value;
-    }
-    if (b0.checked) {
-      b = b0.value;
-    }
-    if (b1.checked) {
-      b = b1.value;
-    }
+
 
     tableVeriteOR.style.display = 'none';
     tableVeriteXOR.style.display = 'none';
@@ -126,6 +109,7 @@ function creer_exercice() {
           break;
         default:
           console.log(tableVeriteAND, tableVeriteXOR, tableVeriteXOR);
+          break;
       }
     }
     if (caseQuestion.checked) {
@@ -151,14 +135,7 @@ function creer_exercice() {
 
 
 }
-/* Menu déroulant changement à la sélection */
-function change_valeur() {
-  if (menuDeroulantValeur != '0') {
-    nomFonction.innerHTML = 'Fonction logique <span class="gras">' + menuDeroulantTexte.toUpperCase() + "</span>";
-  } else {
-    affichage_message('<span class="gras">Choisir une fonction logique</span>');
-  }
-}
+
 
 /* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
@@ -169,14 +146,71 @@ function init() {
 
 /* Fonction vérification */
 function verif() {
-
+  var reponseEleve = document.getElementById('reponseEleve').value;
+  reponseEleve = reponseEleve.toUpperCase();
+  if ((reponseEleve == 'VRAI') || (reponseEleve == 'VRAIE')) {
+    reponseEleve = 1;
+  }
+  if ((reponseEleve == 'FAUX') || (reponseEleve == 'FAUSSE')) {
+    reponseEleve = 0;
+  }
+  if (reponseEleve == 1) {
+    reponseEleve = true;
+  }
+  if (reponseEleve == 0) {
+    reponseEleve = false;
+  }
+  /* Récupère le nom de la fonction affichée dans le menu déroulant */
+  var menuDeroulantChoix = menuDeroulant.selectedIndex;
+  var menuDeroulantValeur = menuDeroulant.options[menuDeroulantChoix].value;
+  /* Récupère les boutons radio */
+  var a0 = document.getElementById('a0');
+  var a1 = document.getElementById('a1');
+  var b0 = document.getElementById('b0');
+  var b1 = document.getElementById('b1');
+  var a, b;
+  /* Vérification des boutons radio*/
+  if (a0.checked) {
+    a = a0.value;
+  }
+  if (a1.checked) {
+    a = a1.value;
+  }
+  if (b0.checked) {
+    b = b0.value;
+  }
+  if (b1.checked) {
+    b = b1.value;
+  }
+  /* Vérification de la réponse de l'élève */
+  switch (menuDeroulantValeur) {
+    case 'and':
+      bonneReponse = (a && b);
+      break;
+    case 'xor':
+      bonneReponse = ((a && !b) || (!a && b)); // simulation du xor car javascript n'a pas de xor pour des booléens
+      break;
+    case 'or':
+      bonneReponse = (a || b);
+      break;
+    default:
+      break;
+  }
+  if (reponseEleve == bonneReponse) {
+    affichage_message('BONNE R&Aecute;PONSE !', 1)
+  }
 }
 
 /* Affichage boite de messages */
-function affichage_message(texte) {
+function affichage_message(texte, type) {
   boiteMessage.style.display = 'block';
-  var html = ' <div class="alerte"> \
-   <span class = "fermeture"  onclick = "this.parentElement.style.display=\'none \';" > &times; </span>' + texte + ' </div> ';
+  var html = ''
+  if (type = 0) {
+    html = ' <div class="alerte">';
+  } else {
+    html = ' <div class="alerte reussite">';
+  }
+  html = html + '<span class = "fermeture"  onclick = "this.parentElement.style.display=\'none \';" > &times; </span>' + texte + ' </div> ';
   boiteMessage.innerHTML = html;
   console.log(texte);
 }
