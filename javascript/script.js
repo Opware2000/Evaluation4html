@@ -5,22 +5,28 @@
 /*  ---------------------------------------------- */
 console.log('Chargement du javascript')
 /* Variables globales du programme */
-/* Zones d'affichage */
-var valeurA = document.getElementById("valeurA");
-var valeurB = document.getElementById("valeurB");
-var nomFonction = document.getElementById("valeur_fonction_logique");
-var menuDeroulant = document.getElementById("fonctionLogique");
-/* Récupère l'affichage des tables de vérité */
-var tableVeriteAND = document.getElementById("tableVeriteAND");
-var tableVeriteOR = document.getElementById("tableVeriteOR");
-var tableVeriteXOR = document.getElementById("tableVeriteXOR");
-/* Récupère l'affichage du tableau de question */
-var tableauQuestion = document.getElementById("tableauQuestion");
-/* Récupère l'affichage de la boite de message */
-var boiteMessage = document.getElementById("boiteMessage");
+
 /* Récupère la page sur laquelle on affiche le javascript */
 var pageHtml = document.getElementById('page').value;
+if (pageHtml == "xhtml") {
+  /* PAGE XHTML */
+  /* Zones d'affichage */
+  var valeurA = document.getElementById("valeurA");
+  var valeurB = document.getElementById("valeurB");
+  var nomFonction = document.getElementById("valeur_fonction_logique");
+  var menuDeroulant = document.getElementById("fonctionLogique");
+  /* Récupère l'affichage des tables de vérité */
+  var tableVeriteAND = document.getElementById("tableVeriteAND");
+  var tableVeriteOR = document.getElementById("tableVeriteOR");
+  var tableVeriteXOR = document.getElementById("tableVeriteXOR");
+  /* Récupère l'affichage du tableau de question */
+  var tableauQuestion = document.getElementById("tableauQuestion");
+  /* Récupère l'affichage de la boite de message */
+  var boiteMessage = document.getElementById("boiteMessage");
+} else {
+  /* PAGE HTML 5 */
 
+}
 console.log("Page en cours " + pageHtml);
 /* Fonction de changement de côté de l'image de Georges Boole et du bouton */
 function changer_cote_float() {
@@ -68,7 +74,11 @@ function heure_machine() {
   if (s < 10) {
     s = "0" + s;
   }
-  item.innerHTML = "Heure machine " + h + ":" + m + ":" + s;
+  if (pageHtml == "xhtml") {
+    item.innerHTML = "Heure machine " + h + ":" + m + ":" + s;
+  } else {
+    item.innerHTML = h + ":" + m + ":" + s;
+  }
   rafraichir();
 }
 /* Permet de rafraîchir l'affichage de l'heure toutes les secondes*/
@@ -78,11 +88,11 @@ function rafraichir() {
 }
 
 
-/* Vérification du formulaire, et enregistrement des valeurs */
-function verif() {
-  /* on teste si le sessionStorage fonctionne */
-  if (typeof sessionStorage == "undefined") {
-    alert("sessionStorage n'est pas supporté");
+/* Vérification du formulaire Exercice, et enregistrement des valeurs */
+function verif_formulaire_exercice() {
+  /* on teste si le localStorage fonctionne */
+  if (typeof localStorage == "undefined") {
+    alert("localStorage n'est pas supporté");
     return 0;
   }
 
@@ -96,7 +106,7 @@ function verif() {
   nomFonction.innerHTML = 'Fonction logique <span class="gras">' +
     menuDeroulant.options[menuDeroulantChoix].text.toUpperCase() +
     "</span>";
-  sessionStorage.setItem("fonction", menuDeroulantChoix);
+  localStorage.setItem("fonction", menuDeroulantChoix);
 
   /* Récupération des valeurs de A et B dans les radio boutons */
   var a0 = document.getElementById("a0");
@@ -114,8 +124,8 @@ function verif() {
   } else {
     b = b1.value;
   }
-  sessionStorage.setItem("a", a);
-  sessionStorage.setItem("b", b);
+  localStorage.setItem("a", a);
+  localStorage.setItem("b", b);
 
   /* Récupération des options dans les cases à cocher */
   var caseTableVerite = document.getElementById("table_verite");
@@ -128,9 +138,9 @@ function verif() {
     affichage_message("Choisir quelque chose &agrave; faire", 0);
     return 0;
   }
-  sessionStorage.setItem("table_verite", caseTableVerite.checked);
-  sessionStorage.setItem("question", caseQuestion.checked);
-  sessionStorage.setItem("reponse", caseReponse.checked);
+  localStorage.setItem("table_verite", caseTableVerite.checked);
+  localStorage.setItem("question", caseQuestion.checked);
+  localStorage.setItem("reponse", caseReponse.checked);
   return 1;
 }
 
@@ -141,10 +151,10 @@ function affichage_exercice() {
   tableVeriteOR.style.display = "none";
   tableVeriteXOR.style.display = "none";
   tableVeriteAND.style.display = "none";
-  console.log('Table vérité ' + sessionStorage.getItem("table_verite"))
+  console.log('Table vérité ' + localStorage.getItem("table_verite"))
   /* affiche ou non la table de verite */
-  if (sessionStorage.getItem("table_verite") == 'true') {
-    switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
+  if (localStorage.getItem("table_verite") == 'true') {
+    switch (menuDeroulant.options[localStorage.getItem("fonction")].value) {
       case "and":
         tableVeriteAND.style.display = "block";
         break;
@@ -161,15 +171,15 @@ function affichage_exercice() {
   }
 
   /* affiche ou non la question */
-  if (sessionStorage.getItem("question") == 'true') {
+  if (localStorage.getItem("question") == 'true') {
     tableauQuestion.style.display = "block";
     /* Affichage de Vrai ou Faux dans le tableau de réponse élève */
-    if (sessionStorage.getItem("a") == '1') {
+    if (localStorage.getItem("a") == '1') {
       var a = "VRAI";
     } else {
       var a = "FAUX";
     }
-    if (sessionStorage.getItem("b") == '1') {
+    if (localStorage.getItem("b") == '1') {
       var b = "VRAI";
     } else {
       var b = "FAUX";
@@ -181,10 +191,16 @@ function affichage_exercice() {
   }
 }
 
-function creation_exercice() {
-  if (verif() == 1) {
-    console.log("formulaire vérifié")
-    affichage_exercice();
+function verif() {
+  if (pageHtml == "xhtml") {
+    if (verif_formulaire_exercice() == 1) {
+      console.log("formulaire XHTML vérifié")
+      affichage_exercice();
+    }
+  } else {
+    if (verif_formulaire_email() == 1) {
+      console.log('formulaire HTML5 vérifié')
+    }
   }
 }
 
@@ -200,21 +216,21 @@ function valider_reponse() {
   } else {
     reponseEleve = false;
   }
-  sessionStorage.setItem("reponse_eleve", reponseEleve);
+  localStorage.setItem("reponse_eleve", reponseEleve);
 
   /* calcul de la bonne reponse */
   var bonneReponse;
-  switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
+  switch (menuDeroulant.options[localStorage.getItem("fonction")].value) {
     case "and":
-      bonneReponse = parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b"));
+      bonneReponse = parseInt(localStorage.getItem("a")) && parseInt(localStorage.getItem("b"));
       break;
     case "xor":
       // simulation du xor car javascript n'a pas de xor pour des booléens
-      bonneReponse = (parseInt(sessionStorage.getItem("a")) && !parseInt(sessionStorage.getItem("b"))) ||
-        (!parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b")));
+      bonneReponse = (parseInt(localStorage.getItem("a")) && !parseInt(localStorage.getItem("b"))) ||
+        (!parseInt(localStorage.getItem("a")) && parseInt(localStorage.getItem("b")));
       break;
     case "or":
-      bonneReponse = parseInt(sessionStorage.getItem("a")) || parseInt(sessionStorage.getItem("b"));
+      bonneReponse = parseInt(localStorage.getItem("a")) || parseInt(localStorage.getItem("b"));
       break;
     default:
       break;
@@ -223,7 +239,7 @@ function valider_reponse() {
   /* Verification de la reponse de l'eleve */
   var caseReponse = document.getElementById("reponse");
   var reponse = "";
-  if (sessionStorage.getItem("reponse") == 'true') {
+  if (localStorage.getItem("reponse") == 'true') {
     if (bonneReponse == true) {
       reponse = 'Le r&eacute;sultat est <span class="italique">VRAI</span>.';
     } else {
@@ -296,14 +312,61 @@ function raz() {
     boiteMessage.style.display = "none";
     reponseEleve.value = "votre réponse";
     /* on efface les donnees stockees */
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }
 /* Fonction pour afficher la valeur du slider range */
 function miseAJourSlider(val) {
-  document.getElementById('niveauHtmlValeur').value = val;
+  document.getElementById('id_niveauHtmlValeur').value = val;
 }
 
+/* Fonction vérification du formulaire Email et enregistrement des valeurs */
+function verif_formulaire_email() {
+  var nom = document.getElementById('id_nom').value;
+  var age = document.getElementById('id_age').value;
+  var telephone = document.getElementById('id_telephone').value;
+  var color = document.getElementById('id_color').value;
+  var email = document.getElementById('id_email').value;
+  var niveauHtml = document.getElementById('id_niveauHtmlValeur').value;
+  var message = document.getElementById('id_votreMessage').value;
+
+  localStorage.setItem("nom", nom);
+  localStorage.setItem("age", age);
+  localStorage.setItem("telephone", telephone);
+  localStorage.setItem("color", color);
+  localStorage.setItem("email", email);
+  localStorage.setItem("niveauHtml", niveauHtml);
+  localStorage.setItem("message", message);
+  return 1
+}
+/* Fonction pour lire les valeurs stockées localement */
+function lire_local_storage() {
+  var local_reponse = localStorage.getItem("reponse");
+  var local_question = localStorage.getItem("question");
+  var local_fonction = localStorage.getItem("fonction");
+  var local_table_verite = localStorage.getItem("table_verite");
+  var local_a = localStorage.getItem("a");
+  var local_b = localStorage.getItem("b");
+  var local_reponse_eleve = localStorage.getItem("reponse_eleve");
+
+  var local_nom = localStorage.getItem('nom', nom);
+  var local_age = localStorage.getItem('age', age);
+  var local_telephone = localStorage.getItem('telephone', telephone);
+  var local_color = localStorage.getItem('color', color);
+  var local_email = localStorage.getItem('email', email);
+  var local_niveauHtml = localStorage.getItem('niveauHtml', niveauHtml);
+  var local_message = localStorage.getItem('message', message);
+
+  let variables_formulaire_xhtml = [
+    local_a, local_b, local_fonction, local_question, local_reponse, local_reponse_eleve, local_table_verite
+  ]
+  let variable_formulaire_html5 = [
+    local_nom, local_age, local_telephone, local_color, local_email, local_niveauHtml, local_message
+  ]
+
+  console.log(variables_formulaire_xhtml, variable_formulaire_html5);
+
+}
 /* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
   heure_machine();

@@ -76,7 +76,7 @@
 					</section>
 					<section>
 						<h2>Exercice sur les Booléens en Vidéo</h2>
-						<video width="90%" height="auto" controls="controls">
+						<video width="640" height="480" controls="controls">
 							<source src="media/video_booleens_mon_lycee_numerique.mp4" type="video/mp4" />
 							Votre navigateur ne prend pas en charge la balise <code>video</code> de html5, voici le lien
 							vers
@@ -132,21 +132,36 @@
 										<input type="email" name="email" id="id_email" size="30" maxlength="250"
 											value="" placeholder="moi@example.fr" pattern=".+@example.fr" />
 									</dd>
-									<dt><label for="niveauHtml">Votre niveau en HTML5&nbsp;:&nbsp;</label><br></dt>
-
+									<dt>
+										<label for="niveauHtml">
+											Votre niveau en HTML5&nbsp;:&nbsp;
+										</label>
+									</dt>
 									<dd>
-										<input type="range" id="niveauHtml" name="range" value="30" min="0" max="100"
+										<input type="range" id="id_niveauHtml" name="range" value="30" min="0" max="100"
 											onchange="miseAJourSlider(this.value);" step="10"> <input type="text"
-											id="niveauHtmlValeur" value="" disabled="disabled">
+											id="id_niveauHtmlValeur" value="" disabled="disabled">
 									</dd>
 									<dt><label for="votreMessage">Message&nbsp;:&nbsp;</label></dt>
-									<dd><textarea id="votreMessage" name="votreMessage" rows="5" cols="33"></textarea>
+									<dd><textarea id="id_votreMessage" name="votreMessage" rows="5"
+											cols="33"></textarea>
 									</dd>
 									<dt></dt>
-									<dd><input type="submit" name="submit" id="id_submit" value="Envoyer" />
-										<input type="submit" name="submit" id="id_submit" value="Réinitialiser" />
+									<dd><input type="button" name="submit" id="id_submit" value="Envoyer"
+											onclick="verif()" />
+										<input type="button" name="reinitialiser" id="id_reinitialiser"
+											value="Réinitialiser" />
 									</dd>
 								</dl>
+							</div>
+						</form>
+					</section>
+					<section>
+						<h2 id="lectureFormulaires">Afficher les variables des formulaires</h2>
+						<form id="formulaireLireLocal" action="mailto:exemple@example.com" method="POST">
+							<div>
+								<input type="button" id="lire_local" name="lire_local" onclick="lire_local_storage()"
+									value="Lire les variables des formulaires" />
 							</div>
 						</form>
 					</section>
@@ -166,6 +181,7 @@
 				</aside>
 
 			</main>
+
 		</div>
 		<footer>
 			<section>
@@ -193,25 +209,26 @@
 
 					<dl>
 						<dt>Auteur :</dt>
-						<dl><a href="https://archive.org/details/Slinte-7753">Sláinte</a></dl>
+						<dd><a href="https://archive.org/details/Slinte-7753">Sláinte</a></dd>
 						<dt>Track :</dt>
-						<dl>Star of the County Down</dl>
+						<dd>Star of the County Down</dd>
 						<dt>Licence :</dt>
-						<dl><a
+						<dd><a
 								href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</a>
-						</dl>
+						</dd>
 						<dt>Source :</dt>
-						<dl><a href="https://auboutdufil.com/?id=555">Télécharger gratuitement Sláinte - Star of the
+						<dd><a href="https://auboutdufil.com/?id=555">Télécharger gratuitement Sláinte - Star of the
 								County
-								Down</a></dl>
+								Down</a></dd>
 
 					</dl>
 
 				</article>
 			</section>
 			<section>
-				<h2>Copyright :</h2>
 				<article>
+					<h2>Copyright :</h2>
+
 					Marc Bouché Pillon, Nicolas Ogier : <address>Lycée Pierre Larousse, 6 rue des montagnes, 89130 TOUCY
 					</address>
 					<a href="http://creativecommons.org/licenses/by-nc/4.0/fr/" rel="license">Mis à disposition sous
@@ -220,10 +237,7 @@
 				</article>
 			</section>
 			<section>
-				<time>
-					<span id="heure"></se>
-				</time>
-
+				<p>Heure machine &nbsp;<time id="heure"></time></p>
 			</section>
 
 		</footer>
