@@ -42,57 +42,67 @@
 		<div class="content">
 			<main>
 
-				<article id="texte">
-					<section>
-						<h2>Qui est Boole ?</h2>
-						<p class="presentation">
-							<blockquote>
-								"George Boole, n&eacute; le 2 novembre 1815 &agrave; Lincoln
-								(Royaume-Uni) et mort le 8 d&eacute;cembre 1864 &agrave; Ballintemple
-								(Irlande), est un logicien, math&eacute;maticien et philosophe
-								britannique. Il est le cr&eacute;ateur de la logique moderne,
-								fond&eacute;e sur une structure alg&eacute;brique et s&eacute;mantique,
-								que l'on appelle alg&egrave;bre de Boole en son honneur. Il a aussi
-								travaill&eacute; dans d'autres domaines math&eacute;matiques, des
-								&eacute;quations diff&eacute;rentielles aux probabilit&eacute;s en
-								passant par l'analyse. <br />
-								Autodidacte, il publia ses premiers travaux d'alg&egrave;bre tout en
-								exer&ccedil;ant son m&eacute;tier d'instituteur et de directeur
-								d'&eacute;cole dans la r&eacute;gion de Lincoln. Ses travaux lui
-								valurent en 1844 la Royal Medal de la Royal Society, puis une chaire de
-								math&eacute;matiques &agrave; l'universit&eacute; (Queen's College) de
-								Cork en 1849. De 1844 &agrave; 1854, il cr&eacute;e une alg&egrave;bre
-								binaire, dite bool&eacute;enne, n'acceptant que deux valeurs
-								num&eacute;riques : 0 et 1. Cette alg&egrave;bre aura de nombreuses
-								applications en t&eacute;l&eacute;phonie et en informatique, notamment
-								gr&acirc;ce &agrave; Claude Shannon en 1938, pr&egrave;s d'un
-								si&egrave;cle plus tard."
-							</blockquote>
+				<section id="texte">
+					<article>
+						<header>
+							<h2>Qui est Boole ?</h2>
+						</header>
+
+						<blockquote>
+							"George Boole, n&eacute; le 2 novembre 1815 &agrave; Lincoln
+							(Royaume-Uni) et mort le 8 d&eacute;cembre 1864 &agrave; Ballintemple
+							(Irlande), est un logicien, math&eacute;maticien et philosophe
+							britannique. Il est le cr&eacute;ateur de la logique moderne,
+							fond&eacute;e sur une structure alg&eacute;brique et s&eacute;mantique,
+							que l'on appelle alg&egrave;bre de Boole en son honneur. Il a aussi
+							travaill&eacute; dans d'autres domaines math&eacute;matiques, des
+							&eacute;quations diff&eacute;rentielles aux probabilit&eacute;s en
+							passant par l'analyse. <br />
+							Autodidacte, il publia ses premiers travaux d'alg&egrave;bre tout en
+							exer&ccedil;ant son m&eacute;tier d'instituteur et de directeur
+							d'&eacute;cole dans la r&eacute;gion de Lincoln. Ses travaux lui
+							valurent en 1844 la Royal Medal de la Royal Society, puis une chaire de
+							math&eacute;matiques &agrave; l'universit&eacute; (Queen's College) de
+							Cork en 1849. De 1844 &agrave; 1854, il cr&eacute;e une alg&egrave;bre
+							binaire, dite bool&eacute;enne, n'acceptant que deux valeurs
+							num&eacute;riques : 0 et 1. Cette alg&egrave;bre aura de nombreuses
+							applications en t&eacute;l&eacute;phonie et en informatique, notamment
+							gr&acirc;ce &agrave; Claude Shannon en 1938, pr&egrave;s d'un
+							si&egrave;cle plus tard."
+						</blockquote>
+						<p>
 							<a href="https://fr.wikipedia.org/wiki/George_Boole"
 								title="Pr&eacute;sentation de George Boole sur Wikip&eacute;dia" target="_blank">
 								Pour lire la suite de cet article de Wikip&eacute;dia, cliquez sur
-								l'image !</a>
+								l'image !
+							</a>
 						</p>
-					</section>
-					<section>
-						<h2>Exercice sur les Bool&eacute;ens en Vid&eacute;o</h2>
-						<video width="640" height="480" controls="controls">
+					</article>
+					<article class="centrer">
+						<header>
+							<h2>Exercice sur les Bool&eacute;ens en Vid&eacute;o</h2>
+						</header>
+						<video width="640" height="350" controls="controls">
 							<source src="media/video_booleens_mon_lycee_numerique.mp4" type="video/mp4" />
 							Votre navigateur ne prend pas en charge la balise <code>video</code> de html5, voici le lien
 							vers
 							<a href="https://youtu.be/1vgYAl7KLE0" target="_blank">la page youtube </a>
 						</video>
 
-					</section>
-					<section>
-						<h2>Un peu de d&eacute;tente en musique ?</h2>
+					</article>
+					<article class="centrer">
+						<header>
+							<h2>Un peu de d&eacute;tente en musique ?</h2>
+						</header>
 						<audio controls src="media/Slainte-StaroftheCountyDown.mp3">
 							Votre navigateur ne prend pas en charge la balise
 							<code>audio</code> de html5.
 						</audio>
-					</section>
-					<section>
-						<h2>Contact :</h2>
+					</article>
+					<article>
+						<header>
+							<h2>Contact :</h2>
+						</header>
 						<p>Avec ce formulaire vous pouvez me contacter directement par e-mail.</p>
 						<form id="id_form" action="mailto:example@example.com" method="post">
 							<div class="courrielFormulaire">
@@ -134,16 +144,16 @@
 											value="" placeholder="moi@example.fr" pattern=".+@example.fr" />
 									</dd>
 									<dt>
-										<label for="niveauHtml">
+										<label for="id_niveauHtml">
 											Votre niveau en HTML5&nbsp;:&nbsp;
 										</label>
 									</dt>
 									<dd>
 										<input type="range" id="id_niveauHtml" name="range" value="30" min="0" max="100"
-											onchange="miseAJourSlider(this.value);" step="10"> <input type="text"
+											onchange="miseAJourSlider(this.value);" step="10"> <br /><input type="text"
 											id="id_niveauHtmlValeur" value="" disabled="disabled">
 									</dd>
-									<dt><label for="votreMessage">Message&nbsp;:&nbsp;</label></dt>
+									<dt><label for="id_votreMessage">Message&nbsp;:&nbsp;</label></dt>
 									<dd><textarea id="id_votreMessage" name="votreMessage" rows="5"
 											cols="33"></textarea>
 									</dd>
@@ -156,12 +166,12 @@
 								</dl>
 							</div>
 						</form>
-					</section>
-					<section>
+					</article>
+					<article>
 						<h2 id="lectureFormulaires">Afficher les variables des formulaires</h2>
 						<p>Ce bouton permet d'afficher une liste des valeurs des formulaires des pages xhtml et html5.
 							Il faut avoir remplit les 2 pr&eacute;c&eacute;dents formulaires avant de les afficher sinon
-							les données seront indiquées <span class="italique">null</span></span></p>
+							les données seront indiquées <span class="italique">null</span></p>
 						<form id="formulaireLireLocal" action="mailto:exemple@example.com" method="POST">
 							<div>
 								<input type="button" id="lire_local" name="lire_local" onclick="lire_local_storage()"
@@ -171,20 +181,19 @@
 
 							</div>
 						</form>
-					</section>
-				</article>
+					</article>
+				</section>
 				<aside id="imageflottante">
-					<section>
-						<a href="https://fr.wikipedia.org/wiki/George_Boole"
-							title="Pr&eacute;sentation de George Boole sur Wikip&eacute;dia">
-							<img src="media/George_Boole.jpg" width="100%" height="auto"
-								alt="Portrait de George Boole, " />
-						</a>
-						<form id="positionImage" method="post" action="mailto:example@example.com">
-							<p><input type="button" onclick="changer_cote_float();"
-									value="Changer de c&ocirc;t&eacute; l'image" /></p>
-						</form>
-					</section>
+
+					<a href="https://fr.wikipedia.org/wiki/George_Boole"
+						title="Pr&eacute;sentation de George Boole sur Wikip&eacute;dia">
+						<img src="media/George_Boole.jpg" width="360" height="480" alt="Portrait de George Boole, " />
+					</a>
+					<form id="positionImage" method="post" action="mailto:example@example.com">
+						<p><input type="button" onclick="changer_cote_float();"
+								value="Changer de c&ocirc;t&eacute; l'image" /></p>
+					</form>
+
 				</aside>
 
 			</main>
@@ -235,14 +244,23 @@
 					</dl>
 
 				</article>
-			</section>
-			<section>
+				<article>
+					<h3>Image</h3>
+					<dl>
+						<dt>Auteur :</dt>
+						<dd>inconnu</dd>
+						<dt>Lien :</dt>
+						<dd><a href="http://schools.keldysh.ru/sch444/museum/1_17-19.htm"
+								target="_blank">http://schools.keldysh.ru/sch444/museum/1_17-19.htm</a></dd>
+					</dl>
+				</article>
+
 				<article>
 					<h2>Copyright :</h2>
 
 					Marc Bouch&eacute; Pillon, Nicolas Ogier : <address>Lyc&eacute;e Pierre Larousse, 6 rue des
 						montagnes, 89130 TOUCY
-					</address>
+					</address><br />
 					<a href="http://creativecommons.org/licenses/by-nc/4.0/fr/" rel="license">Mis &agrave; disposition
 						sous
 						licence
@@ -250,7 +268,7 @@
 				</article>
 			</section>
 			<section>
-				<p>Heure machine &nbsp;<time id="heure"></time></p>
+				<p>Heure machine &nbsp;<time id="heure">12:00:00</time></p>
 			</section>
 
 		</footer>
