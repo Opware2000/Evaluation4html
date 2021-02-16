@@ -25,14 +25,16 @@ function changer_cote_float() {
   var divTexte = document.getElementById("texte");
   if (divImage.style.float == "right") {
     divImage.style.float = "left";
-    divImage.style.marginLeft = "0";
+    divImage.style.marginLeft = "0px";
     divImage.style.marginRight = "10px";
-    divTexte.style.marginRight = '360px';
+    divTexte.style.marginLeft = "360px";
+    divTexte.style.marginRight = "0px";
   } else {
     divImage.style.float = "right";
     divImage.style.marginLeft = "10px";
     divImage.style.marginRight = "0px";
-    divTexte.style.marginLeft = '360px';
+    divTexte.style.marginRight = "360px";
+    divTexte.style.marginLeft = "0px";
   }
 }
 
@@ -110,7 +112,7 @@ function creer_exercice() {
     tableVeriteAND.style.display = 'none';
     if ((caseQuestion.checked == false) && (caseReponse.checked == false) && (caseTableVerite.checked == false)) {
       /* Aucune case n'est cochée */
-      affichage_message('Choisir quelque chose à faire', 0);
+      affichage_message('Choisir quelque chose &agrave; faire', 0);
     }
     /* Vérification des cases à cocher */
     if (caseTableVerite.checked) {
@@ -219,9 +221,9 @@ function verif() {
   var reponse = '';
   if (caseReponse.checked) {
     if (bonneReponse == true) {
-      reponse = 'Le résultat est <span class="italique">VRAI</span>.';
+      reponse = 'Le r&eacute;sultat est <span class="italique">VRAI</span>.';
     } else {
-      reponse = 'Le résultat est <span class="italique">FAUX</span>.';
+      reponse = 'Le r&eacute;sultat est <span class="italique">FAUX</span>.';
     }
   }
   if (reponseEleve == bonneReponse) {
@@ -281,7 +283,7 @@ function raz() {
   /* Récupère l'affichage du tableau de question */
   tableauQuestion.style.display = 'none';
   boiteMessage.style.display = 'none';
-  reponseEleve.value = "votre r&eacute;ponse";
+  reponseEleve.value = "votre réponse";
 }
 
 /* appelle l'intialisation au chargement du script */
