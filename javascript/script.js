@@ -63,133 +63,116 @@ function rafraichir() {
   setTimeout("heure_machine()", t);
 }
 
-/* Création de l'exercice */
-function creation_exercice() {
-  
-}
-
 
 /* Vérification du formulaire, et enregistrement des valeurs */
 function verif() {
-  // on teste si le sessionStorage fonctionne
+  /* on teste si le sessionStorage fonctionne */
   if (typeof sessionStorage == "undefined") {
-    return;
+    alert("sessionStorage n'est pas supporté");
+    return 0;
   }
   
-  /* Récupération de la fonction affichée dans le menu déroulant */
+  /* Récupération de la fonction logique affichée dans le menu déroulant */
   var menuDeroulantChoix = menuDeroulant.selectedIndex;
-  
-  
-  
-    var nbvisites = localStorage.getItem("visites");
-    // Vérification de la présence du compteur
-    if (nbvisites != null) {
-      // Si oui, on convertit en nombre entier la chaîne de texte qui fut stockée
-      nbvisites = parseInt(nbvisites);
-    } else {
-      nbvisites = 0;
-    }
-    // Incrémentation
-    nbvisites++;
-    // Stockage à nouveau en attendant la prochaine visite...
-    localStorage.setItem("visites", nbvisites);
-    // Affichage dans la page
-    document.getElementById("visites").innerHTML = nbvisites;
-  } else {
-    alert("localStorage n'est pas supporté");
+  boiteMessage.style.display = "none";
+  if (menuDeroulantChoix == 0) {
+    affichage_message('<span class="gras">Choisir une fonction logique</span>', 0);
+    return 0;
   }
-
-
-  var menuDeroulantValeur = menuDeroulant.options[menuDeroulantChoix].value;
-  var menuDeroulantTexte = menuDeroulant.options[menuDeroulantChoix].text;
-  /* Récupère les cases à cocher */
+  nomFonction.innerHTML = 'Fonction logique <span class="gras">' +
+                          menuDeroulant.options[menuDeroulantChoix].text.toUpperCase() +
+                          "</span>";
+  sessionStorage.setItem("fonction", menuDeroulantChoix);
+  
+  /* Récupération des valeurs de A et B dans les radio boutons */
+  var a0 = document.getElementById("a0");
+  var a1 = document.getElementById("a1");
+  var b0 = document.getElementById("b0");
+  var b1 = document.getElementById("b1");
+  var a, b;
+  if (a0.checked) {
+    a = a0.value;
+  }
+  else {
+    a = a1.value;
+  }
+  if (b0.checked) {
+    b = b0.value;
+  }
+  else {
+    b = b1.value;
+  }
+  sessionStorage.setItem("a", a);
+  sessionStorage.setItem("b", b);
+  
+  /* Récupération des options dans les cases à cocher */
   var caseTableVerite = document.getElementById("table_verite");
   var caseQuestion = document.getElementById("question");
   var caseReponse = document.getElementById("reponse");
-
-  /* si aucune fonction n'est choisie */
-  //console.log('Menu déroulant ' + menuDeroulantValeur);
-  boiteMessage.style.display = "none";
-  // console.log('Alerte ' + boiteMessage.style.display);
-  if (menuDeroulantValeur == "0") {
-    affichage_message(
-      '<span class="gras">Choisir une fonction logique</span>',
-      0
-    );
-  } else {
-    nomFonction.innerHTML =
-      'Fonction logique <span class="gras">' +
-      menuDeroulantTexte.toUpperCase() +
-      "</span>";
-    //console.log('Choix de la fonction ' + menuDeroulantValeur);
-    /* Récupère les boutons radio */
-    var a0 = document.getElementById("a0");
-    var a1 = document.getElementById("a1");
-    var b0 = document.getElementById("b0");
-    var b1 = document.getElementById("b1");
-    var a, b;
-    /* Vérification des boutons radio*/
-    if (a0.checked) {
-      a = a0.value;
-    }
-    if (a1.checked) {
-      a = a1.value;
-    }
-    if (b0.checked) {
-      b = b0.value;
-    }
-    if (b1.checked) {
-      b = b1.value;
-    }
-
-    tableVeriteOR.style.display = "none";
-    tableVeriteXOR.style.display = "none";
-    tableVeriteAND.style.display = "none";
-    if (
-      caseQuestion.checked == false &&
+  if (caseQuestion.checked == false &&
       caseReponse.checked == false &&
-      caseTableVerite.checked == false
-    ) {
+      caseTableVerite.checked == false) {
       /* Aucune case n'est cochée */
       affichage_message("Choisir quelque chose &agrave; faire", 0);
+      return 0;
+  }
+  sessionStorage.setItem("table_verite", caseTableVerite.checked);
+  sessionStorage.setItem("question", caseQuestion.checked);
+  sessionStorage.setItem("reponse", caseReponse.checked);
+  return 1;
+}
+
+
+/* Affichage de l'exercice (suppose que le formulaire a ete verifie) */
+function affichage_exercice() {
+  console.log('AFFICHAGE EXERCICE')
+  tableVeriteOR.style.display = "none";
+  tableVeriteXOR.style.display = "none";
+  tableVeriteAND.style.display = "none";
+  console.log('Table vérité ' + sessionStorage.getItem("table_verite") )
+  /* affiche ou non la table de verite */
+  if (sessionStorage.getItem("table_verite") == 'true') {
+    switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
+      case "and":
+        tableVeriteAND.style.display = "block";
+        break;
+      case "xor":
+        tableVeriteXOR.style.display = "block";
+        break;
+      case "or":
+        tableVeriteOR.style.display = "block";
+        break;
+      default:
+        console.log(tableVeriteAND, tableVeriteXOR, tableVeriteXOR);
+        break;
     }
-    /* Vérification des cases à cocher */
-    if (caseTableVerite.checked) {
-      /* Affiche la table de vérité de la fonction choisie */
-      switch (menuDeroulantValeur) {
-        case "and":
-          tableVeriteAND.style.display = "block";
-          break;
-        case "xor":
-          tableVeriteXOR.style.display = "block";
-          break;
-        case "or":
-          tableVeriteOR.style.display = "block";
-          break;
-        default:
-          console.log(tableVeriteAND, tableVeriteXOR, tableVeriteXOR);
-          break;
-      }
-    }
-    if (caseQuestion.checked) {
-      /* Affiche une question */
-      tableauQuestion.style.display = "block";
-      /* Affichage de Vrai ou Faux dans le tableau de réponse élève */
-      if (a == 1) {
-        a = "VRAI";
-      } else {
-        a = "FAUX";
-      }
-      if (b == 1) {
-        b = "VRAI";
-      } else {
-        b = "FAUX";
-      }
-      valeurA.innerHTML = " est " + a;
-      valeurB.innerHTML = " est " + b;
+  }
+
+  /* affiche ou non la question */
+  if (sessionStorage.getItem("question") == 'true') {
+    tableauQuestion.style.display = "block";
+    /* Affichage de Vrai ou Faux dans le tableau de réponse élève */
+    if (sessionStorage.getItem("a") == '1') {
+      var a = "VRAI";
     } else {
-      tableauQuestion.style.display = "none";
+      var a = "FAUX";
     }
+    if (sessionStorage.getItem("b") == '1') {
+      var b = "VRAI";
+    } else {
+      var b = "FAUX";
+    }
+    valeurA.innerHTML = " est " + a;
+    valeurB.innerHTML = " est " + b;
+  } else {
+    tableauQuestion.style.display = "none";
+  }
+}
+
+function creation_exercice() {
+  if (verif() == 1) {
+    console.log("formulaire vérifié")
+    affichage_exercice();
   }
 }
 
