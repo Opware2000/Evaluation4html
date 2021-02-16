@@ -55,7 +55,7 @@ function heure_machine() {
   item.innerHTML = "Heure machine " + h + ":" + m + ":" + s;
   rafraichir();
 }
-/* Permet de rafraichir l'affichage de l'heure toutes les secondes*/
+/* Permet de rafraîchir l'affichage de l'heure toutes les secondes*/
 function rafraichir() {
   var t = 1000; // rafraîchissement en millisecondes
   setTimeout("heure_machine()", t);
