@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-	<title>Apprendre l'algèbre de Boole| HTML5 </title>
+	<title>Apprendre l'alg&egrave;bre de Boole| HTML5 </title>
 	<meta name="keywords" lang="fr" content="logique,booleenne,binaire" />
 	<meta name="author" content="Marc Bouch&eacute; Pillon, Nicolas Ogier" />
 	<meta name="description" content="Apprendre la logique Bool&eacute;enne" />
@@ -21,17 +21,17 @@
 
 	<div id="bloc_page">
 		<header>
-			<h1>Algèbre Booléenne</h1>
+			<h1>Alg&egrave;bre Bool&eacute;enne</h1>
 
 			<nav>
 				<ul>
 					<li class="deroulant"><a href="#">Cours complets &ensp;</a>
 						<ul class="sous">
 							<li><a href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)"
-									target="_blank">Page Wikipédia sur l'algèbre de Boole</a></li>
+									target="_blank">Page Wikip&eacute;dia sur l'alg&egrave;bre de Boole</a></li>
 							<li><a href="http://www.monlyceenumerique.fr/nsi_premiere/bases_b/b5_cours_sur_les_booleens.php"
 									target="_blank">Cours
-									sur Mon Lycée Numérique</a></li>
+									sur Mon Lyc&eacute;e Num&eacute;rique</a></li>
 						</ul>
 					</li>
 					<li><a href="./xhtml.html">Exerciseur en XHTML</a></li>
@@ -75,7 +75,7 @@
 						</p>
 					</section>
 					<section>
-						<h2>Exercice sur les Booléens en Vidéo</h2>
+						<h2>Exercice sur les Bool&eacute;ens en Vid&eacute;o</h2>
 						<video width="640" height="480" controls="controls">
 							<source src="media/video_booleens_mon_lycee_numerique.mp4" type="video/mp4" />
 							Votre navigateur ne prend pas en charge la balise <code>video</code> de html5, voici le lien
@@ -85,7 +85,7 @@
 
 					</section>
 					<section>
-						<h2>Un peu de détente en musique ?</h2>
+						<h2>Un peu de d&eacute;tente en musique ?</h2>
 						<audio controls src="media/Slainte-StaroftheCountyDown.mp3">
 							Votre navigateur ne prend pas en charge la balise
 							<code>audio</code> de html5.
@@ -110,7 +110,8 @@
 											placeholder="16" />
 									</dd>
 									<dt>
-										<label for="id_telephone">Numéro de téléphone&nbsp;:&nbsp;</label>
+										<label for="id_telephone">Num&eacute;ro de
+											t&eacute;l&eacute;phone&nbsp;:&nbsp;</label>
 									</dt>
 									<dd>
 										<input type="tel" name="telephone" id="id_telephone" size="30" maxlength="250"
@@ -149,8 +150,8 @@
 									<dt></dt>
 									<dd><input type="button" name="submit" id="id_submit" value="Envoyer"
 											onclick="verif()" />
-										<input type="button" name="reinitialiser" id="id_reinitialiser"
-											value="Réinitialiser" />
+										<input type="button" name="reinitialiser" id="id_reinitialiser" onclick="raz()"
+											value="R&eacute;initialiser" />
 									</dd>
 								</dl>
 							</div>
@@ -158,10 +159,16 @@
 					</section>
 					<section>
 						<h2 id="lectureFormulaires">Afficher les variables des formulaires</h2>
+						<p>Ce bouton permet d'afficher une liste des valeurs des formulaires des pages xhtml et html5.
+							Il faut avoir remplit les 2 pr&eacute;c&eacute;dents formulaires avant de les afficher sinon
+							les données seront indiquées <span class="italique">null</span></span></p>
 						<form id="formulaireLireLocal" action="mailto:exemple@example.com" method="POST">
 							<div>
 								<input type="button" id="lire_local" name="lire_local" onclick="lire_local_storage()"
 									value="Lire les variables des formulaires" />
+							</div>
+							<div id="id_liste_variables">
+
 							</div>
 						</form>
 					</section>
@@ -185,23 +192,26 @@
 		</div>
 		<footer>
 			<section>
-				<h2>Crédits :</h2>
+				<h2>Cr&eacute;dits :</h2>
 				<article>
-					<h3>Vidéo</h3>
+					<h3>Vid&eacute;o</h3>
 					<dl>
 						<dt>Auteur :</dt>
-						<dd>Pascal Thérèse : professeur de mathématiques dans un lycée de Haute-Marne , formateur en
-							mathématiques/SNT
+						<dd>Pascal Th&eacute;r&egrave;se : professeur de math&eacute;matiques dans un lyc&eacute;e de
+							Haute-Marne , formateur en
+							math&eacute;matiques/SNT
 						</dd>
 						<dt>Licence :</dt>
 						<dd><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Licence Creative
-								Commons Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions
+								Commons Attribution - Pas d'Utilisation Commerciale - Partage dans les M&ecirc;mes
+								Conditions
 								4.0
 								International</a>
 						</dd>
 						<dt>Source :</dt>
 						<dd><a href="http://monlyceenumerique.fr/nsi_premiere/bases_b/b5_cours_sur_les_booleens.php"
-								target="_blank">Mon lycée numérique : cours sur les booléens</a></dd>
+								target="_blank">Mon lyc&eacute;e num&eacute;rique : cours sur les bool&eacute;ens</a>
+						</dd>
 					</dl>
 				</article>
 				<article>
@@ -209,7 +219,7 @@
 
 					<dl>
 						<dt>Auteur :</dt>
-						<dd><a href="https://archive.org/details/Slinte-7753">Sláinte</a></dd>
+						<dd><a href="https://archive.org/details/Slinte-7753">Sl&aacute;inte</a></dd>
 						<dt>Track :</dt>
 						<dd>Star of the County Down</dd>
 						<dt>Licence :</dt>
@@ -217,7 +227,8 @@
 								href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</a>
 						</dd>
 						<dt>Source :</dt>
-						<dd><a href="https://auboutdufil.com/?id=555">Télécharger gratuitement Sláinte - Star of the
+						<dd><a href="https://auboutdufil.com/?id=555">T&eacute;l&eacute;charger gratuitement
+								Sl&aacute;inte - Star of the
 								County
 								Down</a></dd>
 
@@ -229,9 +240,11 @@
 				<article>
 					<h2>Copyright :</h2>
 
-					Marc Bouché Pillon, Nicolas Ogier : <address>Lycée Pierre Larousse, 6 rue des montagnes, 89130 TOUCY
+					Marc Bouch&eacute; Pillon, Nicolas Ogier : <address>Lyc&eacute;e Pierre Larousse, 6 rue des
+						montagnes, 89130 TOUCY
 					</address>
-					<a href="http://creativecommons.org/licenses/by-nc/4.0/fr/" rel="license">Mis à disposition sous
+					<a href="http://creativecommons.org/licenses/by-nc/4.0/fr/" rel="license">Mis &agrave; disposition
+						sous
 						licence
 						CC 4.0</a>
 				</article>

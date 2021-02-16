@@ -312,7 +312,37 @@ function raz() {
     boiteMessage.style.display = "none";
     reponseEleve.value = "votre réponse";
     /* on efface les donnees stockees */
-    localStorage.clear();
+    // localStorage.clear(); <- on efface tout même l'autre formulaire donc on efface une a une.
+    localStorage.removeItem("reponse");
+    localStorage.removeItem("question");
+    localStorage.removeItem("fonction");
+    localStorage.removeItem("table_verite");
+    localStorage.removeItem("a");
+    localStorage.removeItem("b");
+    localStorage.removeItem("reponse_eleve");
+  } else {
+    var nom = document.getElementById('id_nom').value;
+    var age = document.getElementById('id_age').value;
+    var telephone = document.getElementById('id_telephone').value;
+    var color = document.getElementById('id_color').value;
+    var email = document.getElementById('id_email').value;
+    var niveauHtml = document.getElementById('id_niveauHtmlValeur').value;
+    var message = document.getElementById('id_votreMessage').value;
+    nom = '';
+    age = '';
+    telephone = '';
+    color = '#000000';
+    email = '';
+    niveauHtml = 20;
+    message = '';
+    /* Suppression des données stockées */
+    localStorage.removeItem("nom");
+    localStorage.removeItem("age");
+    localStorage.removeItem("telephone");
+    localStorage.removeItem("color");
+    localStorage.removeItem("email");
+    localStorage.removeItem("niveauHtml");
+    localStorage.removeItem("message");
   }
 }
 /* Fonction pour afficher la valeur du slider range */
@@ -329,7 +359,7 @@ function verif_formulaire_email() {
   var email = document.getElementById('id_email').value;
   var niveauHtml = document.getElementById('id_niveauHtmlValeur').value;
   var message = document.getElementById('id_votreMessage').value;
-
+  /* On enregistre les élements dans localStorage */
   localStorage.setItem("nom", nom);
   localStorage.setItem("age", age);
   localStorage.setItem("telephone", telephone);
@@ -337,8 +367,13 @@ function verif_formulaire_email() {
   localStorage.setItem("email", email);
   localStorage.setItem("niveauHtml", niveauHtml);
   localStorage.setItem("message", message);
+  /* On les lit pour afficher une boite d'alerte */
+  var chaine = "Nom = " + localStorage.getItem("nom") + '\n' + 'Age = ' + localStorage.getItem("age") + '\n' + 'Téléphone = ' + localStorage.getItem("telephone") + '\n' + 'Couleur = ' + localStorage.getItem("color") + '\n' + 'Courriel = ' + localStorage.getItem("email") + '\n' + 'Niveau HTML = ' + localStorage.getItem("niveauHtml") + '%' + '\n' + 'Message = ' + localStorage.getItem("message");
+  alert(chaine);
   return 1
 }
+
+
 /* Fonction pour lire les valeurs stockées localement */
 function lire_local_storage() {
   var local_reponse = localStorage.getItem("reponse");
@@ -349,23 +384,39 @@ function lire_local_storage() {
   var local_b = localStorage.getItem("b");
   var local_reponse_eleve = localStorage.getItem("reponse_eleve");
 
-  var local_nom = localStorage.getItem('nom', nom);
-  var local_age = localStorage.getItem('age', age);
-  var local_telephone = localStorage.getItem('telephone', telephone);
-  var local_color = localStorage.getItem('color', color);
-  var local_email = localStorage.getItem('email', email);
-  var local_niveauHtml = localStorage.getItem('niveauHtml', niveauHtml);
-  var local_message = localStorage.getItem('message', message);
-
-  let variables_formulaire_xhtml = [
-    local_a, local_b, local_fonction, local_question, local_reponse, local_reponse_eleve, local_table_verite
+  var local_nom = localStorage.getItem('nom');
+  var local_age = localStorage.getItem('age');
+  var local_telephone = localStorage.getItem('telephone');
+  var local_color = localStorage.getItem('color');
+  var local_email = localStorage.getItem('email');
+  var local_niveauHtml = localStorage.getItem('niveauHtml');
+  var local_message = localStorage.getItem('message');
+  /* On créé deux tableaux  pour chaque formulaire qui permettront d'associer description et valeur */
+  let nom_variable_xhtml = [
+    'Valeur de A', 'Valeur de B', 'Id de la fonction', 'Afficher la question', "Afficher la réponse", "Afficher la table de vérité", "Réponse de l'élève"
   ]
-  let variable_formulaire_html5 = [
+  let variables_formulaire_xhtml = [
+    local_a, local_b, local_fonction, local_question, local_reponse, local_table_verite, local_reponse_eleve
+  ]
+  let nom_variable_html5 = [
+    'Nom', 'Age', 'Téléphone', 'Couleur', 'Email', 'Niveau de HTML', 'Courriel'
+  ]
+  let variables_formulaire_html5 = [
     local_nom, local_age, local_telephone, local_color, local_email, local_niveauHtml, local_message
   ]
-
-  console.log(variables_formulaire_xhtml, variable_formulaire_html5);
-
+  // console.log(variables_formulaire_xhtml, variables_formulaire_html5);
+  /* Création de la liste à puce d'affichage des variables */
+  var liste = '<ul><li>Page XHTML&nbsp;:<ul>';
+  for (let i = 0; i < variables_formulaire_xhtml.length; i++) {
+    liste += '<li>' + nom_variable_xhtml[i] + '&nbsp;:&nbsp;<span class="italique">' + variables_formulaire_xhtml[i] + '</span></li>';
+  }
+  liste += "</ul></li><li> Page HTML5&nbsp;:<ul>";
+  for (let i = 0; i < variables_formulaire_html5.length; i++) {
+    liste += '<li>' + nom_variable_html5[i] + '&nbsp;:&nbsp;<span class="italique">' + variables_formulaire_html5[i] + '</span></li>';
+  }
+  liste += "</ul></li></ul>";
+  var liste_variables = document.getElementById('id_liste_variables');
+  liste_variables.innerHTML = liste;
 }
 /* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
