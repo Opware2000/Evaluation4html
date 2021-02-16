@@ -6,8 +6,9 @@
 }
 
 body {
-  background: url("https://cdn.glitch.com/c6015833-87c7-4dfe-8a04-c1c8b982c29d%2Fbackground%20copie.png?v=1613405741365");
+  background: url("../media/background.png");
 }
+
 body:before {
   content: "";
   display: block;
@@ -34,20 +35,15 @@ h1.titre_page {
   border-right-color: #DDD;
   border-bottom-color: #DDD;
   background-color: #a2b3c4;
-  margin-top:10px;
+  margin-top: 10px;
 }
+
 p {
   padding-left: 10px;
   padding-right: 10px;
 }
+
 /* Tableau */
-.tableau {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
 .tableau td {
   border-color: black;
   border-style: solid;
@@ -58,6 +54,7 @@ p {
   padding: 10px 5px;
   word-break: normal;
 }
+
 .tableau th {
   border-color: black;
   border-style: solid;
@@ -69,67 +66,92 @@ p {
   padding: 10px 5px;
   word-break: normal;
 }
+
+.tableau {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 .tableau .tableau-parametres {
   border-color: #000000;
   font-style: italic;
   font-weight: bold;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
 }
+
 .tableau .tableau-fonction {
   border-color: #000000;
   color: #fe0000;
   text-align: center;
-  vertical-align: top;
+  vertical-align: middle;
 }
+
 .tableau .tableau-element {
   border-color: #000000;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
 }
+
 .tableau .tableau-entete {
   border-color: #000000;
   font-weight: bold;
   text-align: center;
-  vertical-align: top;
+  vertical-align: middle;
   border: 0;
 }
+
 .pas-bordure-droite {
-  border-right: 0!important;
+  border-right: 0 !important;
 }
+
 .pas-bordure-bas {
-  border-bottom: 0!important;
+  border-bottom: 0 !important;
 }
+
 .pas-bordure-gauche {
-  border-left: 0!important;
+  border-left: 0 !important;
 }
+
 .pas-bordure-haut {
-  border-top: 0!important;
+  border-top: 0 !important;
 }
- .pas-bordure {
-  border: 0!important;
+
+.pas-bordure {
+  border: 0 !important;
 }
- .champ_reponse {
+
+.champ_reponse {
   color: #0000fe;
   font-weight: bold;
 }
- .aligne_droite {
-  text-align:right;
+
+.aligne_droite {
+  text-align: right !important;
 }
- .aligne_gauche {
-  text-align:left;
+
+.aligne_gauche {
+  text-align: left !important;
 }
- .largeur30 {
-  width:30%;
+
+.largeur30 {
+  width: 30%;
 }
-.tableau_etire{
-  margin:auto;
-  text-align:center;
+
+.tableau_etire {
+  margin: auto;
+  text-align: center;
 }
+
 span.entree {
   font-weight: bold;
   font-style: italic;
 }
+
 #fonction {
   font-weight: bold;
   color: #BB2222;
@@ -139,11 +161,16 @@ span.entree {
 #imageflottante {
   float: left;
   margin-right: 10px;
-  text-align:center;
+  text-align: center;
 }
+
 p.presentation {
   text-align: justify;
   line-height: 1.5em;
+}
+
+.gras {
+  font-weight: bold;
 }
 
 /* Mise en page */
@@ -152,11 +179,120 @@ p.presentation {
   margin-left: auto;
   margin-right: auto;
   background-color: #DDD;
-  height: 95%
-  overflow: scroll;
-  padding:10px;
+  height: 95%;
+  overflow: auto;
+  padding: 10px;
+}
+
+#texte {
+  margin-left: 360px;
+}
+
+div.centre {
+  width: 100%;
+  text-align: center;
 }
 
 #heure {
   text-align: right;
+}
+
+/* Table de vérité */
+.tableverite {
+
+  border-collapse: collapse;
+  padding: 5px;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+.tableverite caption {
+  caption-side: top;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.tableverite .entree {
+  border: 0;
+  padding: 5px;
+  background: #333;
+  color: #FFF;
+  vertical-align: middle;
+}
+
+.tableverite .none {
+  border: 0;
+  padding: 5px;
+  background: none;
+  color: #FFF;
+  vertical-align: middle;
+}
+
+
+.tableverite .italique {
+  font-style: italic;
+}
+
+.tableverite td {
+  border: 1px solid #C0C0C0;
+  padding: 5px;
+}
+
+#tableVeriteAND {
+  display: none;
+}
+
+#tableVeriteOr {
+  display: none;
+}
+
+#tableVeriteXOR {
+  display: none;
+}
+
+#tableauQuestion {
+  display: none;
+}
+
+#boiteMessage {
+  margin-top: 50px;
+}
+
+/* Message */
+.alerte {
+  padding: 20px;
+  background-color: #f44336;
+  /* Red */
+  color: white;
+  margin-bottom: 15px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alerte.reussite {
+  background-color: #4CAF50;
+}
+
+/* bouton de fermeture */
+.fermeture {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.fermeture:hover {
+  color: black;
+}
+
+.italique {
+  font-style: italic;
 }
