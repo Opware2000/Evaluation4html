@@ -254,7 +254,7 @@ main article h2 {
   color: #626262;
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 3rem 0 2rem;
+  margin: 1rem 0 2rem;
 }
 
 main section article,
@@ -315,4 +315,15 @@ footer section article {
 .center>header,
 h2 {
   text-align: left;
+}
+
+main section#texte>header>h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #FF3333;
+  font-weight: bolder;
+  border: 1px dotted #DDD;
+  margin-left: 1.3em;
+  margin-right: 1.3em;
+  margin-top: 0;
 }

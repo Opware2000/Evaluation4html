@@ -321,6 +321,7 @@ function raz() {
     localStorage.removeItem("b");
     localStorage.removeItem("reponse_eleve");
   } else {
+    var liste_variables = document.getElementById('id_liste_variables');
     var nom = document.getElementById('id_nom').value;
     var age = document.getElementById('id_age').value;
     var telephone = document.getElementById('id_telephone').value;
@@ -343,6 +344,7 @@ function raz() {
     localStorage.removeItem("email");
     localStorage.removeItem("niveauHtml");
     localStorage.removeItem("message");
+    liste_variables.innerHTML = '';
   }
 }
 /* Fonction pour afficher la valeur du slider range */
