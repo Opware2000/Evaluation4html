@@ -287,10 +287,34 @@ function raz() {
   reponseEleve.value = "votre réponse";
 }
 
+/* Fonction de stockage du nombre de visites de la page en localStorage */
+function nombre_de_visites() {
+  if (typeof localStorage != "undefined") {
+    // Récupération de la valeur dans web storage
+    var nbvisites = localStorage.getItem("visites");
+    // Vérification de la présence du compteur
+    if (nbvisites != null) {
+      // Si oui, on convertit en nombre entier la chaîne de texte qui fut stockée
+      nbvisites = parseInt(nbvisites);
+    } else {
+      nbvisites = 0;
+    }
+    // Incrémentation
+    nbvisites++;
+    // Stockage à nouveau en attendant la prochaine visite...
+    localStorage.setItem("visites", nbvisites);
+    // Affichage dans la page
+    document.getElementById("visites").innerHTML = nbvisites;
+  } else {
+    alert("localStorage n'est pas supporté");
+  }
+}
+
 /* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
   heure_machine();
   raz();
+  nombre_de_visites();
 }
 
 /* appelle l'intialisation au chargement du script */
