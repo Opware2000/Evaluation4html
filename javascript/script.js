@@ -281,7 +281,7 @@ function raz() {
   /* Récupère l'affichage du tableau de question */
   tableauQuestion.style.display = 'none';
   boiteMessage.style.display = 'none';
-  reponseEleve.value = "votre réponse";
+  reponseEleve.value = "votre r&eacute;ponse";
 }
 
 /* appelle l'intialisation au chargement du script */
