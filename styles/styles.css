@@ -179,15 +179,21 @@ p.presentation {
   margin-left: auto;
   margin-right: auto;
   background-color: #DDD;
-  height: 95% overflow: scroll;
+  height: 95%;
+  overflow: auto;
   padding: 10px;
 }
 
+#texte {
+  margin-left: 360px;
+}
+
 div.centre {
-  width: 100;
+  width: 100%;
   text-align: center;
 }
 
 #heure {
   text-align: right;
+}
 }
