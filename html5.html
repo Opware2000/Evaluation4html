@@ -41,8 +41,10 @@
 		</header>
 		<div class="content">
 			<main>
-				<section>
-					<article>
+
+				<article id="texte">
+					<section>
+						<h2>Qui est Boole ?</h2>
 						<p class="presentation">
 							<blockquote>
 								"George Boole, n&eacute; le 2 novembre 1815 &agrave; Lincoln
@@ -71,8 +73,86 @@
 								Pour lire la suite de cet article de Wikip&eacute;dia, cliquez sur
 								l'image !</a>
 						</p>
-					</article>
-					<aside id="imageflottante">
+					</section>
+					<section>
+						<h2>Exercice sur les Booléens en Vidéo</h2>
+						<video width="90%" height="auto" controls="controls">
+							<source src="media/video_booleens_mon_lycee_numerique.mp4" type="video/mp4" />
+							Votre navigateur ne prend pas en charge la balise <code>video</code> de html5, voici le lien
+							vers
+							<a href="https://youtu.be/1vgYAl7KLE0" target="_blank">la page youtube </a>
+						</video>
+
+					</section>
+					<section>
+						<h2>Un peu de détente en musique ?</h2>
+						<audio controls src="media/Slainte-StaroftheCountyDown.mp3">
+							Votre navigateur ne prend pas en charge la balise
+							<code>audio</code> de html5.
+						</audio>
+					</section>
+					<section>
+						<h2>Contact :</h2>
+						<p>Avec ce formulaire vous pouvez me contacter directement par e-mail.</p>
+						<form id="id_form" action="mailto:example@example.com" method="post">
+							<div class="courrielFormulaire">
+								<dl class="inline-flex">
+									<dt><label for="id_nom">Nom&nbsp;:&nbsp;</label></dt>
+									<dd>
+										<input type="text" name="nom" id="id_nom" size="30" maxlength="250" value=""
+											required="required" aria-required="true" placeholder="votre nom" />
+									</dd>
+									<dt>
+										<label for="id_age">Age&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="number" name="age" min="0" max="100" step="1" id="id_age" value=""
+											placeholder="16" />
+									</dd>
+									<dt>
+										<label for="id_telephone">Numéro de téléphone&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="tel" name="telephone" id="id_telephone" size="30" maxlength="250"
+											value="" placeholder="01-23-45-67-89"
+											pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" />
+									</dd>
+									<dt>
+										<label for="id_color">Couleur du
+											message&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="color" name="color" id="id_color" value="#000000" />
+									</dd>
+									<dt>
+										<label for="id_email">Votre
+											courriel&nbsp;:&nbsp;</label>
+									</dt>
+									<dd>
+										<input type="email" name="email" id="id_email" size="30" maxlength="250"
+											value="" placeholder="moi@example.fr" pattern=".+@example.fr" />
+									</dd>
+									<dt><label for="niveauHtml">Votre niveau en HTML5&nbsp;:&nbsp;</label><br></dt>
+
+									<dd>
+										<input type="range" id="niveauHtml" name="range" value="30" min="0" max="100"
+											onchange="miseAJourSlider(this.value);" step="10"> <input type="text"
+											id="niveauHtmlValeur" value="" disabled="disabled">
+									</dd>
+									<dt><label for="votreMessage">Message&nbsp;:&nbsp;</label></dt>
+									<dd><textarea id="votreMessage" name="votreMessage" rows="5" cols="33"></textarea>
+									</dd>
+									<dt></dt>
+									<dd><input type="submit" name="submit" id="id_submit" value="Envoyer" />
+										<input type="submit" name="submit" id="id_submit" value="Réinitialiser" />
+									</dd>
+								</dl>
+							</div>
+						</form>
+					</section>
+				</article>
+				<aside id="imageflottante">
+					<section>
 						<a href="https://fr.wikipedia.org/wiki/George_Boole"
 							title="Pr&eacute;sentation de George Boole sur Wikip&eacute;dia">
 							<img src="media/George_Boole.jpg" width="100%" height="auto"
@@ -82,8 +162,9 @@
 							<p><input type="button" onclick="changer_cote_float();"
 									value="Changer de c&ocirc;t&eacute; l'image" /></p>
 						</form>
-					</aside>
-				</section>
+					</section>
+				</aside>
+
 			</main>
 		</div>
 		<footer>
@@ -91,6 +172,21 @@
 				<h2>Crédits :</h2>
 				<article>
 					<h3>Vidéo</h3>
+					<dl>
+						<dt>Auteur :</dt>
+						<dd>Pascal Thérèse : professeur de mathématiques dans un lycée de Haute-Marne , formateur en
+							mathématiques/SNT
+						</dd>
+						<dt>Licence :</dt>
+						<dd><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Licence Creative
+								Commons Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions
+								4.0
+								International</a>
+						</dd>
+						<dt>Source :</dt>
+						<dd><a href="http://monlyceenumerique.fr/nsi_premiere/bases_b/b5_cours_sur_les_booleens.php"
+								target="_blank">Mon lycée numérique : cours sur les booléens</a></dd>
+					</dl>
 				</article>
 				<article>
 					<h3>Musique</h3>

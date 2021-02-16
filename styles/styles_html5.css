@@ -188,10 +188,6 @@ p.presentation {
   padding: 10px;
 }
 
-#texte {
-  margin-left: 360px;
-}
-
 div.centre {
   width: 100%;
   text-align: center;
@@ -460,8 +456,23 @@ footer address {
   display: inline;
 }
 
+footer a {
+  color: #FFF;
+  text-decoration: none;
+  border-bottom: 2px solid #FFF;
+  border-top: 0;
+}
+
+footer a:hover {
+  color: #FFF;
+  font-weight: normal;
+  text-decoration: none;
+  border-bottom: 0;
+  border-top: 2px solid #FFF;
+}
+
 main {
-  width: 100%;
+  /* width: 100%;*/
 
 }
 
@@ -475,26 +486,64 @@ main {
   padding-top: 3%;
 }
 
-.content blockquote:after,
-.content blockquote:before {
+.content blockquote {
   font-style: italic;
-  line-height: .5
+  line-height: 1rem;
+  text-align: justify;
 }
 
-.content .article {
+main article h2 {
+  font-family: Montserrat,
+    Helvetica,
+    Arial,
+    sans-Serif;
+  color: #626262;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 3rem 0 2rem;
+}
 
+main article section,
+main aside section {
   padding: 1rem;
-  margin-bottom: 1.5rem
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  margin-bottom: 1.5rem;
 }
 
 main article {
-  float: left;
-  margin: 0 1.5%;
   width: 63%;
+  float: right;
 }
 
-main aside {
-  float: right;
-  margin: 0 1.5%;
+main aside#imageflottante {
+  float: left;
   width: 30%;
+
+}
+
+main dl.inline-flex {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 90%;
+  overflow: visible;
+}
+
+main dl.inline-flex dt,
+main dl.inline-flex dt label {
+  flex: 0 0 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: right;
+  font-weight: bold;
+  font-style: italic;
+}
+
+main dl.inline-flex dd {
+  margin-left: auto;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 0 0 50%
 }

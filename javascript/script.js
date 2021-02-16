@@ -20,12 +20,14 @@ var tableauQuestion = document.getElementById("tableauQuestion");
 var boiteMessage = document.getElementById("boiteMessage");
 /* Récupère la page sur laquelle on affiche le javascript */
 var pageHtml = document.getElementById('page').value;
+
 console.log("Page en cours " + pageHtml);
 /* Fonction de changement de côté de l'image de Georges Boole et du bouton */
 function changer_cote_float() {
   var divImage = document.getElementById("imageflottante");
+  var divTexte = document.getElementById("texte");
   if (pageHtml == "xhtml") {
-    var divTexte = document.getElementById("texte");
+
     if (divImage.style.float == "right") {
       divImage.style.float = "left";
       divImage.style.marginLeft = "0px";
@@ -42,12 +44,10 @@ function changer_cote_float() {
   } else {
     if (divImage.style.float == "right") {
       divImage.style.float = "left";
-      divImage.style.margin = "0 1.5 %";
-      divImage.style.width = " 30 % ";
+      divTexte.style.float = "right";
     } else {
       divImage.style.float = "right";
-      divImage.style.margin = "0 1.5 %";
-      divImage.style.width = " 30 % ";
+      divTexte.style.float = "left";
     }
   }
 }
@@ -299,7 +299,10 @@ function raz() {
     sessionStorage.clear();
   }
 }
-
+/* Fonction pour afficher la valeur du slider range */
+function miseAJourSlider(val) {
+  document.getElementById('niveauHtmlValeur').value = val;
+}
 
 /* Fonction d'initialisation de la page : formulaires + heure */
 function init() {
