@@ -156,29 +156,14 @@ function creer_exercice() {
 
 }
 
-
-/* Fonction d'initialisation de la page : formulaires + heure */
-function init() {
-  heure_machine();
-  raz();
-}
-
-
 /* Fonction vérification */
 function verif() {
   var reponseEleve = document.getElementById('reponseEleve').value;
   reponseEleve = reponseEleve.toUpperCase();
   /* On traite juste le cas où l'élève réponds un mot, ou les valeurs 1 et 0 */
-  if ((reponseEleve == 'VRAI') || (reponseEleve == 'VRAIE')) {
-    reponseEleve = 1;
-  }
-  if ((reponseEleve == 'FAUX') || (reponseEleve == 'FAUSSE')) {
-    reponseEleve = 0;
-  }
-  if (reponseEleve == 1) {
+  if ((reponseEleve == 'VRAI') || (reponseEleve == 'VRAIE') || (reponseEleve == '1')) {
     reponseEleve = true;
-  }
-  if (reponseEleve == 0) {
+  } else {
     reponseEleve = false;
   }
   /* Récupère le nom de la fonction affichée dans le menu déroulant */
@@ -192,18 +177,17 @@ function verif() {
   var a, b;
   /* Vérification des boutons radio*/
   if (a0.checked) {
-    a = a0.value;
-  }
-  if (a1.checked) {
-    a = a1.value;
+    a = parseInt(a0.value);
+  } else {
+    a = parseInt(a1.value);
   }
   if (b0.checked) {
-    b = b0.value;
-  }
-  if (b1.checked) {
-    b = b1.value;
+    b = parseInt(b0.value);
+  } else {
+    b = parseInt(b1.value);
   }
   /* Vérification de la réponse de l'élève */
+  var bonneReponse;
   switch (menuDeroulantValeur) {
     case 'and':
       bonneReponse = (a && b);
@@ -284,6 +268,12 @@ function raz() {
   tableauQuestion.style.display = 'none';
   boiteMessage.style.display = 'none';
   reponseEleve.value = "votre réponse";
+}
+
+/* Fonction d'initialisation de la page : formulaires + heure */
+function init() {
+  heure_machine();
+  raz();
 }
 
 /* appelle l'intialisation au chargement du script */
