@@ -176,58 +176,42 @@ function creation_exercice() {
   }
 }
 
+
 /* Fonction de validation de la réponse élève */
 function valider_reponse() {
+  /* recuperation de la reponse de l'utilisateur */
   var reponseEleve = document.getElementById("reponseEleve").value;
   reponseEleve = reponseEleve.toUpperCase();
   /* On traite juste le cas où l'élève réponds un mot, ou les valeurs 1 et 0 */
-  if (
-    reponseEleve == "VRAI" ||
-    reponseEleve == "VRAIE" ||
-    reponseEleve == "1"
-  ) {
+  if (reponseEleve == "VRAI" || reponseEleve == "VRAIE" || reponseEleve == "1") {
     reponseEleve = true;
   } else {
     reponseEleve = false;
   }
-  /* Récupère le nom de la fonction affichée dans le menu déroulant */
-  var menuDeroulantChoix = menuDeroulant.selectedIndex;
-  var menuDeroulantValeur = menuDeroulant.options[menuDeroulantChoix].value;
-  /* Récupère les boutons radio */
-  var a0 = document.getElementById("a0");
-  var a1 = document.getElementById("a1");
-  var b0 = document.getElementById("b0");
-  var b1 = document.getElementById("b1");
-  var a, b;
-  /* Vérification des boutons radio*/
-  if (a0.checked) {
-    a = parseInt(a0.value);
-  } else {
-    a = parseInt(a1.value);
-  }
-  if (b0.checked) {
-    b = parseInt(b0.value);
-  } else {
-    b = parseInt(b1.value);
-  }
-  /* Vérification de la réponse de l'élève */
+  sessionStorage.setItem("reponse_eleve", reponseEleve);
+  
+  /* calcul de la bonne reponse */
   var bonneReponse;
-  switch (menuDeroulantValeur) {
+  switch (menuDeroulant.options[sessionStorage.get("fonction")].value) {
     case "and":
-      bonneReponse = a && b;
+      bonneReponse = parseInt(sessionStorage.get("a")) && parseInt(sessionStorage.get("b"));
       break;
     case "xor":
-      bonneReponse = (a && !b) || (!a && b); // simulation du xor car javascript n'a pas de xor pour des booléens
+       // simulation du xor car javascript n'a pas de xor pour des booléens
+      bonneReponse = ((parseInt(sessionStorage.get("a")) && !parseInt(sessionStorage.get("b"))) ||
+                     (!parseInt(sessionStorage.get("a")) && parseInt(sessionStorage.get("b"))));
       break;
     case "or":
-      bonneReponse = a || b;
+      bonneReponse = parseInt(sessionStorage.get("a")) || parseInt(sessionStorage.get("b"));
       break;
     default:
       break;
   }
+  
+  /* Verification de la reponse de l'eleve */
   var caseReponse = document.getElementById("reponse");
   var reponse = "";
-  if (caseReponse.checked) {
+  if (sessionStorage.getItem("reponse") == 'true') {
     if (bonneReponse == true) {
       reponse = 'Le r&eacute;sultat est <span class="italique">VRAI</span>.';
     } else {
@@ -240,6 +224,7 @@ function valider_reponse() {
     affichage_message("MAUVAISE R&Eacute;PONSE ! " + reponse, 0);
   }
 }
+
 
 /* Affichage boite de messages */
 function affichage_message(texte, type) {
@@ -258,6 +243,7 @@ function affichage_message(texte, type) {
   boiteMessage.innerHTML = html;
   console.log(texte);
 }
+
 
 /* Fonction de remise à zéro du formulaire */
 function raz() {
