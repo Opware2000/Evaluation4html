@@ -196,4 +196,91 @@ div.centre {
 #heure {
   text-align: right;
 }
+
+/* Table de vérité */
+.tableverite {
+
+  border-collapse: collapse;
+  padding: 5px;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+.tableverite caption {
+  caption-side: top;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.tableverite .entree {
+  border: 0;
+  padding: 5px;
+  background: #333;
+  color: #FFF;
+  vertical-align: middle;
+}
+
+.tableverite .none {
+  border: 0;
+  padding: 5px;
+  background: none;
+  color: #FFF;
+  vertical-align: middle;
+}
+
+
+.tableverite .italique {
+  font-style: italic;
+}
+
+.tableverite td {
+  border: 1px solid #C0C0C0;
+  padding: 5px;
+}
+
+#tableVeriteAND {
+  display: none;
+}
+
+#tableVeriteOr {
+  display: none;
+}
+
+#tableVeriteXOR {
+  display: none;
+}
+
+#tableauQuestion {
+  display: none;
+}
+
+/* Message */
+.alerte {
+  padding: 20px;
+  background-color: #f44336;
+  /* Red */
+  color: white;
+  margin-bottom: 15px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* bouton de fermeture */
+.fermeture {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.fermeture:hover {
+  color: black;
 }
