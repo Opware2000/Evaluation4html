@@ -257,6 +257,7 @@ function raz() {
   var caseTableVerite = document.getElementById('table_verite');
   var caseQuestion = document.getElementById('question');
   var caseReponse = document.getElementById('reponse');
+  var reponseEleve = document.getElementById('reponseEleve');
   /* ----- Remise à zéro des valeurs ----- */
   /* Menu déroulant */
   menuDeroulant.value = 0;
@@ -280,6 +281,7 @@ function raz() {
   /* Récupère l'affichage du tableau de question */
   tableauQuestion.style.display = 'none';
   boiteMessage.style.display = 'none';
+  reponseEleve.value = "votre réponse";
 }
 
 /* appelle l'intialisation au chargement du script */
