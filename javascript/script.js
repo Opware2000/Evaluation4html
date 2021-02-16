@@ -3,7 +3,7 @@
 /* | auteurs : Marc Bouché Pillon, Nicolas Ogier  |*/
 /* | Utilisé par le fichier xhtml.html            |*/
 /*  ---------------------------------------------- */
-
+console.log('Chargement du javascript')
 /* Variables globales du programme */
 /* Zones d'affichage */
 var valeurA = document.getElementById("valeurA");
@@ -18,23 +18,37 @@ var tableVeriteXOR = document.getElementById("tableVeriteXOR");
 var tableauQuestion = document.getElementById("tableauQuestion");
 /* Récupère l'affichage de la boite de message */
 var boiteMessage = document.getElementById("boiteMessage");
-
+/* Récupère la page sur laquelle on affiche le javascript */
+var pageHtml = document.getElementById('page').value;
+console.log("Page en cours " + pageHtml);
 /* Fonction de changement de côté de l'image de Georges Boole et du bouton */
 function changer_cote_float() {
   var divImage = document.getElementById("imageflottante");
-  var divTexte = document.getElementById("texte");
-  if (divImage.style.float == "right") {
-    divImage.style.float = "left";
-    divImage.style.marginLeft = "0px";
-    divImage.style.marginRight = "10px";
-    divTexte.style.marginLeft = "360px";
-    divTexte.style.marginRight = "0px";
+  if (pageHtml == "xhtml") {
+    var divTexte = document.getElementById("texte");
+    if (divImage.style.float == "right") {
+      divImage.style.float = "left";
+      divImage.style.marginLeft = "0px";
+      divImage.style.marginRight = "10px";
+      divTexte.style.marginLeft = "360px";
+      divTexte.style.marginRight = "0px";
+    } else {
+      divImage.style.float = "right";
+      divImage.style.marginLeft = "10px";
+      divImage.style.marginRight = "0px";
+      divTexte.style.marginRight = "360px";
+      divTexte.style.marginLeft = "0px";
+    }
   } else {
-    divImage.style.float = "right";
-    divImage.style.marginLeft = "10px";
-    divImage.style.marginRight = "0px";
-    divTexte.style.marginRight = "360px";
-    divTexte.style.marginLeft = "0px";
+    if (divImage.style.float == "right") {
+      divImage.style.float = "left";
+      divImage.style.margin = "0 1.5 %";
+      divImage.style.width = " 30 % ";
+    } else {
+      divImage.style.float = "right";
+      divImage.style.margin = "0 1.5 %";
+      divImage.style.width = " 30 % ";
+    }
   }
 }
 
@@ -71,7 +85,7 @@ function verif() {
     alert("sessionStorage n'est pas supporté");
     return 0;
   }
-  
+
   /* Récupération de la fonction logique affichée dans le menu déroulant */
   var menuDeroulantChoix = menuDeroulant.selectedIndex;
   boiteMessage.style.display = "none";
@@ -80,10 +94,10 @@ function verif() {
     return 0;
   }
   nomFonction.innerHTML = 'Fonction logique <span class="gras">' +
-                          menuDeroulant.options[menuDeroulantChoix].text.toUpperCase() +
-                          "</span>";
+    menuDeroulant.options[menuDeroulantChoix].text.toUpperCase() +
+    "</span>";
   sessionStorage.setItem("fonction", menuDeroulantChoix);
-  
+
   /* Récupération des valeurs de A et B dans les radio boutons */
   var a0 = document.getElementById("a0");
   var a1 = document.getElementById("a1");
@@ -92,29 +106,27 @@ function verif() {
   var a, b;
   if (a0.checked) {
     a = a0.value;
-  }
-  else {
+  } else {
     a = a1.value;
   }
   if (b0.checked) {
     b = b0.value;
-  }
-  else {
+  } else {
     b = b1.value;
   }
   sessionStorage.setItem("a", a);
   sessionStorage.setItem("b", b);
-  
+
   /* Récupération des options dans les cases à cocher */
   var caseTableVerite = document.getElementById("table_verite");
   var caseQuestion = document.getElementById("question");
   var caseReponse = document.getElementById("reponse");
   if (caseQuestion.checked == false &&
-      caseReponse.checked == false &&
-      caseTableVerite.checked == false) {
-      /* Aucune case n'est cochée */
-      affichage_message("Choisir quelque chose &agrave; faire", 0);
-      return 0;
+    caseReponse.checked == false &&
+    caseTableVerite.checked == false) {
+    /* Aucune case n'est cochée */
+    affichage_message("Choisir quelque chose &agrave; faire", 0);
+    return 0;
   }
   sessionStorage.setItem("table_verite", caseTableVerite.checked);
   sessionStorage.setItem("question", caseQuestion.checked);
@@ -129,7 +141,7 @@ function affichage_exercice() {
   tableVeriteOR.style.display = "none";
   tableVeriteXOR.style.display = "none";
   tableVeriteAND.style.display = "none";
-  console.log('Table vérité ' + sessionStorage.getItem("table_verite") )
+  console.log('Table vérité ' + sessionStorage.getItem("table_verite"))
   /* affiche ou non la table de verite */
   if (sessionStorage.getItem("table_verite") == 'true') {
     switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
@@ -189,7 +201,7 @@ function valider_reponse() {
     reponseEleve = false;
   }
   sessionStorage.setItem("reponse_eleve", reponseEleve);
-  
+
   /* calcul de la bonne reponse */
   var bonneReponse;
   switch (menuDeroulant.options[sessionStorage.getItem("fonction")].value) {
@@ -197,9 +209,9 @@ function valider_reponse() {
       bonneReponse = parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b"));
       break;
     case "xor":
-       // simulation du xor car javascript n'a pas de xor pour des booléens
+      // simulation du xor car javascript n'a pas de xor pour des booléens
       bonneReponse = (parseInt(sessionStorage.getItem("a")) && !parseInt(sessionStorage.getItem("b"))) ||
-                     (!parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b")));
+        (!parseInt(sessionStorage.getItem("a")) && parseInt(sessionStorage.getItem("b")));
       break;
     case "or":
       bonneReponse = parseInt(sessionStorage.getItem("a")) || parseInt(sessionStorage.getItem("b"));
@@ -207,7 +219,7 @@ function valider_reponse() {
     default:
       break;
   }
-  
+
   /* Verification de la reponse de l'eleve */
   var caseReponse = document.getElementById("reponse");
   var reponse = "";
@@ -247,43 +259,45 @@ function affichage_message(texte, type) {
 
 /* Fonction de remise à zéro du formulaire */
 function raz() {
-  /* Récupère les boutons radio */
-  var a0 = document.getElementById("a0");
-  var a1 = document.getElementById("a1");
-  var b0 = document.getElementById("b0");
-  var b1 = document.getElementById("b1");
-  /* Récupère les cases à cocher */
-  var caseTableVerite = document.getElementById("table_verite");
-  var caseQuestion = document.getElementById("question");
-  var caseReponse = document.getElementById("reponse");
-  var reponseEleve = document.getElementById("reponseEleve");
-  /* ----- Remise à zéro des valeurs ----- */
-  /* Menu déroulant */
-  menuDeroulant.value = 0;
-  /* Boutons radio */
-  a0.checked = true;
-  a1.checked = false;
-  b0.checked = true;
-  b1.checked = false;
-  /* Case à cocher */
-  caseQuestion.checked = false;
-  caseReponse.checked = false;
-  caseTableVerite.checked = false;
-  /* Zones d'affichage */
-  valeurA.innerHTML = "<!--valeur de A-->";
-  valeurB.innerHTML = "<!--valeur de B-->";
-  nomFonction.innerHTML =
-    '<span class="gras">Choisir une fonction logique</span>';
-  /* Tables de vérités */
-  tableVeriteAND.style.display = "none";
-  tableVeriteOR.style.display = "none";
-  tableVeriteXOR.style.display = "none";
-  /* Récupère l'affichage du tableau de question */
-  tableauQuestion.style.display = "none";
-  boiteMessage.style.display = "none";
-  reponseEleve.value = "votre réponse";
-  /* on efface les donnees stockees */
-  sessionStorage.clear();
+  if (pageHtml == "xhtml") {
+    /* Récupère les boutons radio */
+    var a0 = document.getElementById("a0");
+    var a1 = document.getElementById("a1");
+    var b0 = document.getElementById("b0");
+    var b1 = document.getElementById("b1");
+    /* Récupère les cases à cocher */
+    var caseTableVerite = document.getElementById("table_verite");
+    var caseQuestion = document.getElementById("question");
+    var caseReponse = document.getElementById("reponse");
+    var reponseEleve = document.getElementById("reponseEleve");
+    /* ----- Remise à zéro des valeurs ----- */
+    /* Menu déroulant */
+    menuDeroulant.value = 0;
+    /* Boutons radio */
+    a0.checked = true;
+    a1.checked = false;
+    b0.checked = true;
+    b1.checked = false;
+    /* Case à cocher */
+    caseQuestion.checked = false;
+    caseReponse.checked = false;
+    caseTableVerite.checked = false;
+    /* Zones d'affichage */
+    valeurA.innerHTML = "<!--valeur de A-->";
+    valeurB.innerHTML = "<!--valeur de B-->";
+    nomFonction.innerHTML =
+      '<span class="gras">Choisir une fonction logique</span>';
+    /* Tables de vérités */
+    tableVeriteAND.style.display = "none";
+    tableVeriteOR.style.display = "none";
+    tableVeriteXOR.style.display = "none";
+    /* Récupère l'affichage du tableau de question */
+    tableauQuestion.style.display = "none";
+    boiteMessage.style.display = "none";
+    reponseEleve.value = "votre réponse";
+    /* on efface les donnees stockees */
+    sessionStorage.clear();
+  }
 }
 
 
