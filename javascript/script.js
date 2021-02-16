@@ -6,18 +6,18 @@
 
 /* Variables globales du programme */
 /* Zones d'affichage */
-var valeurA = document.getElementById('valeurA');
-var valeurB = document.getElementById('valeurB');
-var nomFonction = document.getElementById('valeur_fonction_logique');
+var valeurA = document.getElementById("valeurA");
+var valeurB = document.getElementById("valeurB");
+var nomFonction = document.getElementById("valeur_fonction_logique");
 var menuDeroulant = document.getElementById("fonctionLogique");
 /* Récupère l'affichage des tables de vérité */
-var tableVeriteAND = document.getElementById('tableVeriteAND');
-var tableVeriteOR = document.getElementById('tableVeriteOR');
-var tableVeriteXOR = document.getElementById('tableVeriteXOR');
+var tableVeriteAND = document.getElementById("tableVeriteAND");
+var tableVeriteOR = document.getElementById("tableVeriteOR");
+var tableVeriteXOR = document.getElementById("tableVeriteXOR");
 /* Récupère l'affichage du tableau de question */
-var tableauQuestion = document.getElementById('tableauQuestion');
+var tableauQuestion = document.getElementById("tableauQuestion");
 /* Récupère l'affichage de la boite de message */
-var boiteMessage = document.getElementById('boiteMessage')
+var boiteMessage = document.getElementById("boiteMessage");
 
 /* Fonction de changement de côté de l'image de Georges Boole et du bouton */
 function changer_cote_float() {
@@ -74,24 +74,30 @@ function creer_exercice() {
   var menuDeroulantValeur = menuDeroulant.options[menuDeroulantChoix].value;
   var menuDeroulantTexte = menuDeroulant.options[menuDeroulantChoix].text;
   /* Récupère les cases à cocher */
-  var caseTableVerite = document.getElementById('table_verite');
-  var caseQuestion = document.getElementById('question');
-  var caseReponse = document.getElementById('reponse');
+  var caseTableVerite = document.getElementById("table_verite");
+  var caseQuestion = document.getElementById("question");
+  var caseReponse = document.getElementById("reponse");
 
   /* si aucune fonction n'est choisie */
   //console.log('Menu déroulant ' + menuDeroulantValeur);
-  boiteMessage.style.display = 'none';
+  boiteMessage.style.display = "none";
   // console.log('Alerte ' + boiteMessage.style.display);
-  if (menuDeroulantValeur == '0') {
-    affichage_message('<span class="gras">Choisir une fonction logique</span>', 0);
+  if (menuDeroulantValeur == "0") {
+    affichage_message(
+      '<span class="gras">Choisir une fonction logique</span>',
+      0
+    );
   } else {
-    nomFonction.innerHTML = 'Fonction logique <span class="gras">' + menuDeroulantTexte.toUpperCase() + "</span>";
+    nomFonction.innerHTML =
+      'Fonction logique <span class="gras">' +
+      menuDeroulantTexte.toUpperCase() +
+      "</span>";
     //console.log('Choix de la fonction ' + menuDeroulantValeur);
     /* Récupère les boutons radio */
-    var a0 = document.getElementById('a0');
-    var a1 = document.getElementById('a1');
-    var b0 = document.getElementById('b0');
-    var b1 = document.getElementById('b1');
+    var a0 = document.getElementById("a0");
+    var a1 = document.getElementById("a1");
+    var b0 = document.getElementById("b0");
+    var b1 = document.getElementById("b1");
     var a, b;
     /* Vérification des boutons radio*/
     if (a0.checked) {
@@ -107,25 +113,29 @@ function creer_exercice() {
       b = b1.value;
     }
 
-    tableVeriteOR.style.display = 'none';
-    tableVeriteXOR.style.display = 'none';
-    tableVeriteAND.style.display = 'none';
-    if ((caseQuestion.checked == false) && (caseReponse.checked == false) && (caseTableVerite.checked == false)) {
+    tableVeriteOR.style.display = "none";
+    tableVeriteXOR.style.display = "none";
+    tableVeriteAND.style.display = "none";
+    if (
+      caseQuestion.checked == false &&
+      caseReponse.checked == false &&
+      caseTableVerite.checked == false
+    ) {
       /* Aucune case n'est cochée */
-      affichage_message('Choisir quelque chose &agrave; faire', 0);
+      affichage_message("Choisir quelque chose &agrave; faire", 0);
     }
     /* Vérification des cases à cocher */
     if (caseTableVerite.checked) {
       /* Affiche la table de vérité de la fonction choisie */
       switch (menuDeroulantValeur) {
-        case 'and':
-          tableVeriteAND.style.display = 'block';
+        case "and":
+          tableVeriteAND.style.display = "block";
           break;
-        case 'xor':
-          tableVeriteXOR.style.display = 'block';
+        case "xor":
+          tableVeriteXOR.style.display = "block";
           break;
-        case 'or':
-          tableVeriteOR.style.display = 'block';
+        case "or":
+          tableVeriteOR.style.display = "block";
           break;
         default:
           console.log(tableVeriteAND, tableVeriteXOR, tableVeriteXOR);
@@ -134,34 +144,36 @@ function creer_exercice() {
     }
     if (caseQuestion.checked) {
       /* Affiche une question */
-      tableauQuestion.style.display = 'block';
+      tableauQuestion.style.display = "block";
       /* Affichage de Vrai ou Faux dans le tableau de réponse élève */
       if (a == 1) {
-        a = 'VRAI';
+        a = "VRAI";
       } else {
-        a = 'FAUX';
+        a = "FAUX";
       }
       if (b == 1) {
-        b = 'VRAI';
+        b = "VRAI";
       } else {
-        b = 'FAUX';
+        b = "FAUX";
       }
-      valeurA.innerHTML = ' est ' + a;
-      valeurB.innerHTML = ' est ' + b;
+      valeurA.innerHTML = " est " + a;
+      valeurB.innerHTML = " est " + b;
     } else {
-      tableauQuestion.style.display = 'none';
+      tableauQuestion.style.display = "none";
     }
   }
-
-
 }
 
 /* Fonction vérification */
 function verif() {
-  var reponseEleve = document.getElementById('reponseEleve').value;
+  var reponseEleve = document.getElementById("reponseEleve").value;
   reponseEleve = reponseEleve.toUpperCase();
   /* On traite juste le cas où l'élève réponds un mot, ou les valeurs 1 et 0 */
-  if ((reponseEleve == 'VRAI') || (reponseEleve == 'VRAIE') || (reponseEleve == '1')) {
+  if (
+    reponseEleve == "VRAI" ||
+    reponseEleve == "VRAIE" ||
+    reponseEleve == "1"
+  ) {
     reponseEleve = true;
   } else {
     reponseEleve = false;
@@ -170,10 +182,10 @@ function verif() {
   var menuDeroulantChoix = menuDeroulant.selectedIndex;
   var menuDeroulantValeur = menuDeroulant.options[menuDeroulantChoix].value;
   /* Récupère les boutons radio */
-  var a0 = document.getElementById('a0');
-  var a1 = document.getElementById('a1');
-  var b0 = document.getElementById('b0');
-  var b1 = document.getElementById('b1');
+  var a0 = document.getElementById("a0");
+  var a1 = document.getElementById("a1");
+  var b0 = document.getElementById("b0");
+  var b1 = document.getElementById("b1");
   var a, b;
   /* Vérification des boutons radio*/
   if (a0.checked) {
@@ -189,20 +201,20 @@ function verif() {
   /* Vérification de la réponse de l'élève */
   var bonneReponse;
   switch (menuDeroulantValeur) {
-    case 'and':
-      bonneReponse = (a && b);
+    case "and":
+      bonneReponse = a && b;
       break;
-    case 'xor':
-      bonneReponse = ((a && !b) || (!a && b)); // simulation du xor car javascript n'a pas de xor pour des booléens
+    case "xor":
+      bonneReponse = (a && !b) || (!a && b); // simulation du xor car javascript n'a pas de xor pour des booléens
       break;
-    case 'or':
-      bonneReponse = (a || b);
+    case "or":
+      bonneReponse = a || b;
       break;
     default:
       break;
   }
-  var caseReponse = document.getElementById('reponse');
-  var reponse = '';
+  var caseReponse = document.getElementById("reponse");
+  var reponse = "";
   if (caseReponse.checked) {
     if (bonneReponse == true) {
       reponse = 'Le r&eacute;sultat est <span class="italique">VRAI</span>.';
@@ -211,22 +223,26 @@ function verif() {
     }
   }
   if (reponseEleve == bonneReponse) {
-    affichage_message('BONNE R&Eacute;PONSE ! ' + reponse, 1)
+    affichage_message("BONNE R&Eacute;PONSE ! " + reponse, 1);
   } else {
-    affichage_message('MAUVAISE R&Eacute;PONSE ! ' + reponse, 0);
+    affichage_message("MAUVAISE R&Eacute;PONSE ! " + reponse, 0);
   }
 }
 
 /* Affichage boite de messages */
 function affichage_message(texte, type) {
-  boiteMessage.style.display = 'block';
-  var html = ''
+  boiteMessage.style.display = "block";
+  var html = "";
   if (type == 0) {
     html = ' <div class="alerte">';
   } else {
     html = ' <div class="alerte reussite">';
   }
-  html = html + '<span class = "fermeture"  onclick = "this.parentElement.style.display=\'none \';" > &times; </span>' + texte + ' </div> ';
+  html =
+    html +
+    '<span class = "fermeture"  onclick = "this.parentElement.style.display=\'none \';" > &times; </span>' +
+    texte +
+    " </div> ";
   boiteMessage.innerHTML = html;
   console.log(texte);
 }
@@ -235,15 +251,15 @@ function affichage_message(texte, type) {
 function raz() {
   /* Récupération des données du formulaire */
   /* Récupère les boutons radio */
-  var a0 = document.getElementById('a0');
-  var a1 = document.getElementById('a1');
-  var b0 = document.getElementById('b0');
-  var b1 = document.getElementById('b1');
+  var a0 = document.getElementById("a0");
+  var a1 = document.getElementById("a1");
+  var b0 = document.getElementById("b0");
+  var b1 = document.getElementById("b1");
   /* Récupère les cases à cocher */
-  var caseTableVerite = document.getElementById('table_verite');
-  var caseQuestion = document.getElementById('question');
-  var caseReponse = document.getElementById('reponse');
-  var reponseEleve = document.getElementById('reponseEleve');
+  var caseTableVerite = document.getElementById("table_verite");
+  var caseQuestion = document.getElementById("question");
+  var caseReponse = document.getElementById("reponse");
+  var reponseEleve = document.getElementById("reponseEleve");
   /* ----- Remise à zéro des valeurs ----- */
   /* Menu déroulant */
   menuDeroulant.value = 0;
@@ -257,16 +273,17 @@ function raz() {
   caseReponse.checked = false;
   caseTableVerite.checked = false;
   /* Zones d'affichage */
-  valeurA.innerHTML = '<!--valeur de A-->'
-  valeurB.innerHTML = '<!--valeur de B-->'
-  nomFonction.innerHTML = '<span class="gras">Choisir une fonction logique</span>'
+  valeurA.innerHTML = "<!--valeur de A-->";
+  valeurB.innerHTML = "<!--valeur de B-->";
+  nomFonction.innerHTML =
+    '<span class="gras">Choisir une fonction logique</span>';
   /* Tables de vérités */
   tableVeriteAND.style.display = "none";
   tableVeriteOR.style.display = "none";
   tableVeriteXOR.style.display = "none";
   /* Récupère l'affichage du tableau de question */
-  tableauQuestion.style.display = 'none';
-  boiteMessage.style.display = 'none';
+  tableauQuestion.style.display = "none";
+  boiteMessage.style.display = "none";
   reponseEleve.value = "votre réponse";
 }
 
